@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:pp_template/plantdetails.dart';
 import 'package:pp_template/splash.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/test.dart';
@@ -18,7 +19,7 @@ class _beforetestState extends State<beforetest> {
   void initState(){
     super.initState();
     Future.delayed(Duration(seconds: 3)).then((value){
-      Navigator.of(context).pushReplacement(CupertinoPageRoute(builder:(ctx) => const test(plant: 'banana')));
+      Navigator.of(context).pushReplacement(CupertinoPageRoute(builder:(ctx) => PlantDetails()));
     });
 
 
