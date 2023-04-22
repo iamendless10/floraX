@@ -4,12 +4,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:pp_template/SearchBarScreen.dart';
+import 'package:pp_template/backendapi.dart';
 import 'package:pp_template/beforetest.dart';
 import 'package:pp_template/test.dart';
 import 'package:pp_template/TakePictureScreen.dart';
 
-class homescreen extends StatelessWidget {
+class homescreen extends StatefulWidget {
   const homescreen({Key? key}) : super(key: key);
+  @override
+  _homescreenState createState() => _homescreenState();
+}
+
+class _homescreenState extends State<homescreen> {
+  late Future<String> _futureUsername;
+
+  @override
+  void initState() {
+    super.initState();
+    _futureUsername = getUsername('test@gmail.com');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,11 +139,23 @@ class homescreen extends StatelessWidget {
                     SizedBox(
                       height: 70,
                     ),
-                    Text(
-                      '   Hi, Alexa',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.quicksand(
-                          color: Color(0xFF0C3D33), fontSize: 35),
+                    FutureBuilder<String>(
+                      future: _futureUsername,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Text(
+                            '   Hi, ${snapshot.data}',
+                            textAlign: TextAlign.left,
+                            style: GoogleFonts.quicksand(
+                              color: Color(0xFF0C3D33),
+                              fontSize: 35,
+                            ),
+                          );
+                        } else if (snapshot.hasError) {
+                          return Text("${snapshot.error}");
+                        }
+                        return CircularProgressIndicator();
+                      },
                     ),
                     SizedBox(height: 10,),
                     Text('       Age : 22  |  Plants : 5  |  Status : Online',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 15),),

@@ -45,6 +45,21 @@ Future <bool> registerUser(String email, String password, String username) async
   }
 }
 
+Future<String> getUsername(String email) async{
+  var response = await http.put(Uri.parse(apiUrl+'/user/info'),
+      body : {'email':email});
+
+  if(response.statusCode == 200)
+    {
+      var jsonResponse = json.decode(response.body);
+      if(jsonResponse['username'].toString().isNotEmpty)
+        {
+          return jsonResponse['username'];
+        }
+    }
+  return '';
+}
+
 Future<bool> detectPlant(String imagePath) async {
   var imageFile = File(imagePath);
   var stream = http.ByteStream(imageFile.openRead());
