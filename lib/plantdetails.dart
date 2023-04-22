@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class PlantDetails extends StatelessWidget {
   const PlantDetails({Key? key}) : super(key: key);
@@ -96,7 +97,7 @@ class PlantDetails extends StatelessWidget {
                               color: Color(0xFFF7FBEC),
                               borderRadius: BorderRadius.circular(30)),
                           width: 180,
-                          height: 100,
+                          height: 120,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,22 +106,37 @@ class PlantDetails extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: Color(0xff5D8233),
                                 ),
-                                child: Container(
-                                  height: 160,
-                                  width: 180,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
-                                      color: Color(0xFFF7FBEC)),
-                                  child: Center(
-                                      child: Text(
-                                    '10 %',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.cabin(
-                                      color: Color(0xFF5C5C5C),
-                                      fontSize: 50,
-                                      fontWeight: FontWeight.bold,
+
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 80,
+                                      width: 180,
+
+                                      color: Color(0xFFF7FBEC),
+                                      child: Lottie.network('https://assets2.lottiefiles.com/packages/lf20_w9GTXN.json'),
                                     ),
-                                  )),
+                                    Container(
+                                      height: 80,
+                                      width: 180,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
+                                          color: Color(0xFFF7FBEC)),
+
+                                      child: Center(
+                                          child: Text(
+                                        '10 %',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cabin(
+                                          color: Color(0xFF5C5C5C),
+                                          fontSize: 60,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Container(
@@ -161,11 +177,18 @@ class PlantDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.network('https://assets10.lottiefiles.com/private_files/lf30_6gqfjgqh.json'),
+                              ),
+                              Container(
                                 decoration: BoxDecoration(
                                   color: Color(0xff5D8233),
                                 ),
                                 child: Container(
-                                  height: 160,
+                                  height: 80,
                                   width: 180,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
@@ -219,12 +242,20 @@ class PlantDetails extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+
+                              Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.network('https://assets7.lottiefiles.com/temp/lf20_V92Q4R.json'),
+                              ),
                               Container(
                                 decoration: BoxDecoration(
                                   color: Color(0xff5D8233),
                                 ),
                                 child: Container(
-                                  height: 160,
+                                  height: 80,
                                   width: 180,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
@@ -279,11 +310,18 @@ class PlantDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.network('https://assets1.lottiefiles.com/packages/lf20_bur77wxl.json'),
+                              ),
+                              Container(
                                 decoration: BoxDecoration(
                                   color: Color(0xff5D8233),
                                 ),
                                 child: Container(
-                                  height: 160,
+                                  height: 80,
                                   width: 180,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
@@ -338,11 +376,18 @@ class PlantDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.network('https://assets4.lottiefiles.com/packages/lf20_hhoese47.json'),
+                              ),
+                              Container(
                                 decoration: BoxDecoration(
                                   color: Color(0xff5D8233),
                                 ),
                                 child: Container(
-                                  height: 160,
+                                  height: 80,
                                   width: 180,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
@@ -397,18 +442,26 @@ class PlantDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.network('https://assets6.lottiefiles.com/packages/lf20_nfxa6agk.json'),
+                              ),
+
+                              Container(
                                 decoration: BoxDecoration(
                                   color: Color(0xff5D8233),
                                 ),
                                 child: Container(
-                                  height: 160,
+                                  height: 80,
                                   width: 180,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        '2D Aprx.',
+                                        '2Days',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -435,8 +488,68 @@ class PlantDetails extends StatelessWidget {
                           ),
                         ),
                       ),
-                      // Add more containers here
+                      //
+
                     ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFDEEBBD),
+                  ),
+                  child: Container(
+                    height: 60,
+                    width: 380,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50)
+                      )
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white
+                  ),
+                  child: Container(
+                    height: 500,
+                    width: 380,
+                    decoration: BoxDecoration(
+                        color: Color(0xFFDEEBBD),
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50)
+                        )
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          height: 50,
+                          width: 330,
+                          color: Color(0xFFDEEBBD),
+                          child:  Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Monstera',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 28,),),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 20,
+                          width: 330,
+                          color: Color(0xFFDEEBBD),
+
+                          child:  Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Monstera deliciosa',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -454,29 +567,6 @@ class PlantDetails extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                // child: ListView(
-                //   scrollDirection: Axis.horizontal,
-                //   children: <Widget>[
-                //     Container(
-                //       height: 200,
-                //       width: 200,
-                //       color: Colors.blue,
-                //       margin: EdgeInsets.all(10),
-                //     ),
-                //     Container(
-                //       height: 200,
-                //       width: 200,
-                //       color: Colors.red,
-                //       margin: EdgeInsets.all(10),
-                //     ),
-                //     Container(
-                //       height: 200,
-                //       width: 200,
-                //       color: Colors.green,
-                //       margin: EdgeInsets.all(10),
-                //     ),
-                //   ],
-                // ),
               ),
             ),
           ],
