@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:camera/camera.dart';
+import 'package:pp_template/signinsplash.dart';
 import 'package:flutter/material.dart';
+import 'package:pp_template/backendapi.dart';
 
 Future<void> main() async {
   // Ensure that plugin services are initialized so that `availableCameras()`
@@ -153,16 +155,24 @@ class DisplayPictureScreen extends StatelessWidget {
               width: 200,
               child: Center(child: Column(
                 children: <Widget>[
-                  SizedBox(height: 18,),
-                  Text(
-                    'Detect',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.orbitron(
-                        color: Colors.white, fontSize: 25),
+                  SizedBox(height: 7,),
+                  TextButton(
+                    child: Text(
+                      'Detect',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.balsamiqSans(
+                          color: Colors.white, fontSize: 19),
+                    ),
+                    onPressed: () {
+                      detectPlant(imagePath);
+                    },
                   ),
                 ],
-              ),),
+              ),
+              ),
+
             ),
+
             // TextButton(
             //   child: Text(
             //     'Detect',
