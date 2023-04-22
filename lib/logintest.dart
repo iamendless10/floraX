@@ -10,6 +10,42 @@ class LoginDemo extends StatefulWidget {
 }
 
 class _LoginDemoState extends State<LoginDemo> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _emailinValid=false;
+  bool _passwordinValid = false;
+
+  void _validateInputs() {
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+
+    if (email == null || email.isEmpty) {
+      setState(() {
+        _emailinValid = true;
+      });
+    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
+      setState(() {
+        _emailinValid = true;
+      });
+    } else {
+      setState(() {
+        _emailinValid = false;
+      });
+    }
+
+    if (password==null || password.isEmpty)
+      {
+        setState(() {
+          _passwordinValid = true;
+        });
+      }
+    else{
+      setState(() {
+        _passwordinValid = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,11 +76,13 @@ class _LoginDemoState extends State<LoginDemo> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com'),
+                        hintText: 'Enter valid email id as abc@gmail.com',
+                    errorText: _emailinValid ? 'Enter an valid email' : null),
                   ),
                 ),
               ),
@@ -53,25 +91,17 @@ class _LoginDemoState extends State<LoginDemo> {
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
                   obscureText: true,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Password',
-                      hintText: 'Enter secure password'),
+                      hintText: 'Enter secure password',
+                      errorText: _passwordinValid? "Enter a valid password" : null),
+
                 ),
               ),
               SizedBox(height: 30,),
-              GestureDetector(
-                onTap: () {
-                  //TODO FORGOT PASSWORD SCREEN GOES HERE
-                },
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Text(
-                    'Forgot Password',
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                ),
-              ),
+
               Container(
                 height: 50,
                 width: 250,
@@ -79,8 +109,7 @@ class _LoginDemoState extends State<LoginDemo> {
                     color: Colors.blue, borderRadius: BorderRadius.circular(20)),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => homescreen()));
+                    _validateInputs();
                   },
                   child: Text('Login',textAlign: TextAlign.center,style: GoogleFonts.redHatDisplay(color: Color(0xFFFFFFFF),fontSize: 33,),),
                 ),
@@ -91,9 +120,9 @@ class _LoginDemoState extends State<LoginDemo> {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => signin()));
-                  //TODO CREATE ACCOUNT SCREEN GOES HERE
-                },
+                    context, MaterialPageRoute(builder: (_) => signin()));
+                    //TODO CREATE ACCOUNT SCREEN GOES HERE
+                  },
                 child: Text('New User? Create Account'),
               ),
             ],
