@@ -495,61 +495,143 @@ class PlantDetails extends StatelessWidget {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFFDEEBBD),
+                    color: Colors.white,
                   ),
                   child: Container(
-                    height: 60,
+                    height: 37,
                     width: 380,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50)
-                      )
-                    ),
                   ),
                 ),
                 Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white
+                  height: 270,
+                  width: 380,
+                  color: Colors.white,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        height: 50,
+                        width: 330,
+                        color: Colors.white,
+                        child:  Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Monstera',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Color(0xFF3C3F41),fontSize: 38,),),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 20,
+                        width: 330,
+                        color: Colors.white,
+                        child:  Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Monstera deliciosa',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 25,),
+                      Container(
+                        height: 170,
+                        width: 330,
+                        color: Colors.white,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text('Monstera is a tropical plant native to Central and South America, prized for its large, perforated leaves and unique appearance. It is a popular houseplant and is believed to bring good luck and prosperity',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  child: Container(
-                    height: 500,
-                    width: 380,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFDEEBBD),
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50)
-                        )
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          height: 50,
-                          width: 330,
-                          color: Color(0xFFDEEBBD),
-                          child:  Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Monstera',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 28,),),
-                            ],
-                          ),
+                ),
+                Container(
+                  height: 60,
+                  width: 360,
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      SizedBox(width: 10,),
+                      Container(
+                        height: 30,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE8F4F2),
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        Container(
-                          height: 20,
-                          width: 330,
-                          color: Color(0xFFDEEBBD),
-
-                          child:  Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Monstera deliciosa',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
-                            ],
-                          ),
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.thermostat,color: Colors.black,),
+                            Text('    Minimum 22 .C',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF3C3F41),fontSize: 13,),),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(width: 40,),
+                      Container(
+                        height: 30,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE8F4F2),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.water_drop_rounded,color: Colors.black,),
+                            Text('     Every 3 days',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF3C3F41),fontSize: 13,),),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 30,
+                  width: 360,
+                  color: Colors.white,
+                ),
+                Container(
+                  height: 110,
+                  width: 360,
+                  color: Colors.white,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        height: 110,
+                        width: 180,
+                        decoration: BoxDecoration(
+                            color: Color(0xff5D9C59),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                          )
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Text('      '),
+                            Icon(Icons.bar_chart,color: Color(0xFFFFFFFF),),
+                            Text('   Statistics',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFFFFFFFF),fontSize: 18,),),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 110,
+                        width: 180,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                            )
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Text('      '),
+                            Icon(Icons.info_rounded,color: Color(0xFF202024),),
+                            Text('   Information',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF202024),fontSize: 18,),),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
