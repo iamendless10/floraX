@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +69,9 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a picture')),
+      appBar: AppBar(
+          backgroundColor: Color(0xFFC3999A),
+          title: const Text('Take picture')),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
       // controller has finished initializing.
@@ -86,6 +88,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFFC3999A),
         // Provide an onPressed callback.
         onPressed: () async {
           // Take the Picture in a try / catch block. If anything goes wrong,
@@ -115,7 +118,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
             print(e);
           }
         },
-        child: const Icon(Icons.camera_alt),
+        child: const Icon(Icons.camera_alt,),
       ),
     );
   }
@@ -130,11 +133,57 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Display the Picture')),
+      appBar: AppBar(
+        backgroundColor: Color(0xFFC3999A),
+          title: const Text('Plant Detection')),
       // The image is stored as a file on the device. Use the `Image.file
+      body: GestureDetector(
+        // Wrap the image in a GestureDetector widget to detect user gestures
+        child: Column(
+          children: [
+            Container(
+                child: Image.file(File(imagePath))),
+            SizedBox(height: 90,),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Color(0xFFC3999A),
+              ),
+              height: 60,
+              width: 200,
+              child: Center(child: Column(
+                children: <Widget>[
+                  SizedBox(height: 18,),
+                  Text(
+                    'Detect',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.orbitron(
+                        color: Colors.white, fontSize: 25),
+                  ),
+                ],
+              ),),
+            ),
+            // TextButton(
+            //   child: Text(
+            //     'Detect',
+            //     textAlign: TextAlign.center,
+            //     style:
+            //         GoogleFonts.balsamiqSans(color: Colors.red, fontSize: 19),
+            //   ),
+            //   onPressed: () {
+            //
+            //   },
+            // ),
+          ],
+        ),
 
+        // Define the onTap callback to navigate back to the camera screen
+        onTap: () {
+          Navigator.pop(context);
+        },
+      ),
       // constructor with the given path to display the image.
-      body: Image.file(File(imagePath)),
+      // body: Image.file(File(imagePath)),
     );
   }
 }
