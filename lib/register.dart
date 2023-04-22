@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pp_template/homescreen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pp_template/logintest.dart';
-import 'signinsplash.dart';
+import 'package:pp_template/backendapi.dart';
+import 'package:pp_template/signinsplash.dart';
 
 class register extends StatefulWidget {
   const register({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _registerState extends State<register> {
   bool _passwordinValid = false;
   bool _usernameinValid = false;
 
-  void _validateInputs() {
+  void _validateInputs() async{
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
     String username  = _usernameController.text.trim();
@@ -33,7 +33,7 @@ class _registerState extends State<register> {
           _usernameinValid = true;
         });
       }
-    else if(!RegExp(r'^\w+$').hasMatch(email))
+    else if(!RegExp(r'^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$').hasMatch(username))
     {
       setState(() {
         _usernameinValid = true;
@@ -78,6 +78,23 @@ class _registerState extends State<register> {
         _passwordinValid = false;
       });
     }
+
+    if(_passwordinValid == false && _emailinValid == false)
+      {
+        bool valid = await registerUser(email, password, username);
+        if(valid==true)
+        {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => signinsplash()));
+        }
+        else{
+          setState(() {
+            _usernameController.text = '';
+            _emailController.text = '';
+            _passwordController.text = '';
+          });
+        }
+      }
   }
   @override
   Widget build(BuildContext context) {
@@ -114,7 +131,7 @@ class _registerState extends State<register> {
                         border: OutlineInputBorder(),
                         labelText: 'Username',
                         hintText: '',
-                        errorText: _usernameinValid ? "Username can only contain letters, numbers, underscore" : null),
+                        ),
                   ),
                 ),
               ),
