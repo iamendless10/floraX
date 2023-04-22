@@ -5,13 +5,80 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pp_template/logintest.dart';
 import 'signinsplash.dart';
 
-class signin extends StatefulWidget {
-  const signin({Key? key}) : super(key: key);
+class register extends StatefulWidget {
+  const register({Key? key}) : super(key: key);
   @override
-  State<signin> createState() => _signinState();
+  State<register> createState() => _registerState();
 }
 
-class _signinState extends State<signin> {
+class _registerState extends State<register> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+
+  String _passwordErrortxt='Enter a valid password';
+
+  bool _emailinValid=false;
+  bool _passwordinValid = false;
+  bool _usernameinValid = false;
+
+  void _validateInputs() {
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+    String username  = _usernameController.text.trim();
+
+    if (username == null || username.isEmpty)
+      {
+        setState(() {
+          _usernameinValid = true;
+        });
+      }
+    else if(!RegExp(r'^\w+$').hasMatch(email))
+    {
+      setState(() {
+        _usernameinValid = true;
+      });
+    }
+    else
+      {
+        setState(() {
+          _usernameinValid = false;
+        });
+      }
+
+    if (email == null || email.isEmpty) {
+      setState(() {
+        _emailinValid = true;
+      });
+    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
+      setState(() {
+        _emailinValid = true;
+      });
+    } else {
+      setState(() {
+        _emailinValid = false;
+      });
+    }
+
+    if (password==null || password.isEmpty)
+    {
+      setState(() {
+        _passwordinValid = true;
+      });
+    }
+    else if(password.length < 8)
+      {
+        setState(() {
+          _passwordinValid = true;
+          _passwordErrortxt = 'Password must contain 8 characters';
+        });
+      }
+    else{
+      setState(() {
+        _passwordinValid = false;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,11 +109,12 @@ class _signinState extends State<signin> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextField(
+                  child: TextFormField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Username',
-                        hintText: ''),
+                        hintText: '',
+                        errorText: _usernameinValid ? "Username can only contain letters, numbers, underscore" : null),
                   ),
                 ),
               ),
@@ -58,11 +126,13 @@ class _signinState extends State<signin> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com'),
+                        hintText: 'Enter valid email id as abc@gmail.com',
+                        errorText: _emailinValid ? "Enter a valid email" : null),
                   ),
                 ),
               ),
@@ -71,10 +141,12 @@ class _signinState extends State<signin> {
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
                   obscureText: true,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Password',
-                      hintText: 'Enter secure password'),
+                      hintText: 'Enter secure password',
+                      errorText: _passwordinValid? _passwordErrortxt : null),
                 ),
               ),
               SizedBox(height: 30,),
@@ -85,10 +157,11 @@ class _signinState extends State<signin> {
                     color: Colors.blue, borderRadius: BorderRadius.circular(20)),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => signinsplash()));
+                    _validateInputs();
+                    // Navigator.push(
+                    //     context, MaterialPageRoute(builder: (_) => signinsplash()));
                   },
-                  child: Text('Sign Up',textAlign: TextAlign.center,style: GoogleFonts.redHatDisplay(color: Color(0xFFFFFFFF),fontSize: 33,),),
+                  child: Text('Register',textAlign: TextAlign.center,style: GoogleFonts.redHatDisplay(color: Color(0xFFFFFFFF),fontSize: 33,),),
                 ),
               ),
               SizedBox(
@@ -102,7 +175,7 @@ class _signinState extends State<signin> {
                   //TODO CREATE ACCOUNT SCREEN GOES HERE
 
                 },
-                child: Text('Login'),
+                child: Text('Existing User? Login'),
               ),
             ],
           ),

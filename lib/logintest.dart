@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pp_template/homescreen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pp_template/signintest.dart';
+import 'package:pp_template/register.dart';
 
 class LoginDemo extends StatefulWidget {
   @override
@@ -120,7 +120,7 @@ class _LoginDemoState extends State<LoginDemo> {
               GestureDetector(
                 onTap: () {
                   Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => signin()));
+                    context, MaterialPageRoute(builder: (_) => register()));
                     //TODO CREATE ACCOUNT SCREEN GOES HERE
                   },
                 child: Text('New User? Create Account'),
