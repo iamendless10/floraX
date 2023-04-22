@@ -3,6 +3,7 @@ import 'package:pp_template/homescreen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pp_template/register.dart';
+import 'package:pp_template/backendapi.dart' as backendapi;
 
 class LoginDemo extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _LoginDemoState extends State<LoginDemo> {
   bool _emailinValid=false;
   bool _passwordinValid = false;
 
-  void _validateInputs() {
+  void _validateInputs() async{
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
 
@@ -44,6 +45,23 @@ class _LoginDemoState extends State<LoginDemo> {
         _passwordinValid = false;
       });
     }
+
+    if(_emailinValid == false && _passwordinValid == false)
+      {
+        //Sending to API
+        bool valid  = await backendapi.loginUser(email, password);
+        if(valid==true)
+          {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => homescreen()));
+          }
+        else{
+          setState(() {
+            _emailController.text = '';
+            _passwordController.text = '';
+          });
+        }
+      }
   }
 
   @override
@@ -81,7 +99,7 @@ class _LoginDemoState extends State<LoginDemo> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com',
+                        hintText: 'Enter your email',
                     errorText: _emailinValid ? 'Enter an valid email' : null),
                   ),
                 ),
@@ -95,7 +113,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Password',
-                      hintText: 'Enter secure password',
+                      hintText: 'Enter your password',
                       errorText: _passwordinValid? "Enter a valid password" : null),
 
                 ),
