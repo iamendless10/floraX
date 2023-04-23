@@ -60,7 +60,7 @@ Future<String> getUsername(String email) async{
   return '';
 }
 
-Future<bool> detectPlant(String imagePath) async {
+Future<String> detectPlant(String imagePath) async {
   var imageFile = File(imagePath);
   var stream = http.ByteStream(imageFile.openRead());
   var length = await imageFile.length();
@@ -71,12 +71,7 @@ Future<bool> detectPlant(String imagePath) async {
   var response = await request.send();
   if (response.statusCode == 200) {
     var jsonResponse = json.decode(await response.stream.bytesToString());
-    if(jsonResponse['valid'] == 'true') {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
+    return jsonResponse['name'];
   }
+  return '';
 }
