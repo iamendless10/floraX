@@ -6,6 +6,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:pp_template/SearchBarScreen.dart';
 import 'package:pp_template/backendapi.dart';
 import 'package:pp_template/beforetest.dart';
+import 'package:pp_template/profilepage.dart';
 import 'package:pp_template/test.dart';
 import 'package:pp_template/TakePictureScreen.dart';
 
@@ -99,7 +100,7 @@ class _homescreenState extends State<homescreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => test(plant: 'Apple',)),
+                    MaterialPageRoute(builder: (context) => profile()),
                   );
                 },
               ),
@@ -132,7 +133,7 @@ class _homescreenState extends State<homescreen> {
                   children: [
                     SizedBox(height: 50,),
                     CircleAvatar(
-                      backgroundImage: AssetImage('images/profile5.webp'),
+                      backgroundImage: AssetImage('images/praanesh.jpg'),
                       backgroundColor: Colors.white,
                       radius: 30,
                     ),
@@ -222,6 +223,7 @@ class _homescreenState extends State<homescreen> {
                 width: double.infinity,
                 color: Colors.transparent,
                 child: ListView(
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   children: [
                     Padding(
@@ -589,130 +591,6 @@ class _homescreenState extends State<homescreen> {
 
               ),
               SizedBox(height: 10,),
-              Container(
-                height: 810,
-                width: 330,
-                decoration:
-                BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 3.5,
-                        blurRadius: 5,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                    color: Color(0xFFDCDDDF),
-
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Plant Name',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 22,),),
-                    Text('Neem',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Color(0xFF1A1A1A),fontSize: 27,),),
-                    Column(
-                      children: [
-                        SizedBox(height: 12,),
-                        Text('Neem trees can reach 15–30 metres (49–98 feet) in height and have attractive rounded crowns and thick furrowed bark. The compound leaves have toothed leaflets and are typically evergreen but do drop during periods of extreme drought. The small fragrant white flowers are bisexual or staminate (male) and are borne in clusters in the axils of the leaves. The fruit is a smooth yellow-green drupe and has a sweet-flavoured pulp.',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 16,),)
-                      ],
-                    ),
-                    Text('DISEASES OF NEEM (Azadirachta indica)',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 22,),),
-                    Column(
-                      children: [
-                        SizedBox(height: 12,),
-                        Text('Leaf Web Blight:',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Colors.black,fontSize: 19,),),
-                        Text('It is caused by Rhizoctonia solani.  The disease appears in the nursery after the regular monsoon rains',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 16,),),
-                        SizedBox(height: 55,),
-                        Text('Alternaria Leaf spot and blight:',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Colors.black,fontSize: 19,),),
-                        Text('It is caused by Alternaria alternata. It is a destructive pathogen. It appears late in the growing season in the last week of October or early November at New Forest, Dehra Dun (Mehrotra and Pandey, 1992).  It attacks the leaves when the leaves become old and contain less soluble sugars.',textAlign: TextAlign.center,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 16,),),
-
-
-
-                      ],
-                    ),
-
-                  ],
-                ),
-              ),
-              SizedBox(height: 15,),
-              Container(
-                height: 600,
-                width: 330,
-                color: Colors.transparent,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                              text: 'About',
-                              style: GoogleFonts.raleway(color: Colors.black,fontSize: 45)
-                          ),
-                          TextSpan(
-                              text: 'US',
-                              style:
-                              GoogleFonts.raleway(color: Colors.white,fontSize: 45,)
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Text(' Our mobile app is designed to revolutionize the world of plant care and maintenance by using advanced technologies such as machine learning and computer vision to identify plants and provide users with essential information on their care. By leveraging the power of AI, the app will enable users to take a photo of a plant and instantly receive accurate information on its species, ideal growing conditions, and necessary maintenance. Which part of the plant is edible to consume and if the plant is poisonous or not also it can be used by students to learn about the plant features, And if the particular user tries to identify a plant which grows in a dense forest area the app will send a signal of their particular location to the  us and we could reach out them if they need any help. This app completely works in OFFLINE mode. If the user uses this app for agriculture purpose. Then the app will show the recommend crops for this temperature,humidity,and it also shows weather report. Additionaly it shows some common diseases which they could acquire at a particular season by the particular plant.',textAlign: TextAlign.center,style: GoogleFonts.raleway(color: Color(0xFF3C3F41),fontSize: 16,),),
-                  ],
-                ),
-              ),
-              Container(
-                height: 300,
-                width: 330,
-                color: Colors.transparent,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                              text: 'Contact',
-                              style: GoogleFonts.raleway(color: Colors.white,fontSize: 45)
-                          ),
-                          TextSpan(
-                              text: 'US',
-                              style:
-                              GoogleFonts.raleway(color: Colors.black,fontSize: 45,)
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 15,),
-                    Text('We would love to hear from you! If you have any questions, comments, or feedback regarding our products or services, please dont hesitate to get in touch with us. You can reach us by phone, email, or by using the contact form below',textAlign: TextAlign.center,style: GoogleFonts.raleway(color: Color(0xFF3C3F41),fontSize: 16,),),
-                    SizedBox(height: 15,),
-                    Text('We strive to respond to all inquiries as quickly as possible, but please allow up to 48 hours for a response. Thank you for your interest in our company, and we look forward to hearing from you!',textAlign: TextAlign.center,style: GoogleFonts.raleway(color: Color(0xFF3C3F41),fontSize: 16,),),
-                  ],
-                ),
-              ),
-              Container(
-                height: 70,
-                width: 330,
-                color: Colors.transparent,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.facebook_rounded,size: 50,color: Colors.blue,),
-                    SizedBox(width: 10,),
-                    Icon(Icons.email_rounded,size: 50,color: Color(0xFF3C3F41),),
-                    SizedBox(width: 10,),
-                    Icon(Icons.call,size: 50,color: Colors.green,),
-                    SizedBox(width: 10,),
-                    Icon(Icons.whatshot_rounded,size: 50,color: Colors.orange,),
-                    SizedBox(width: 10    ,),
-                    Icon(Icons.telegram,size: 50,color: Color(0xFF32A7D9),),
-                  ],
-                ),
-              ),
-
             ],
           ),
         ),
