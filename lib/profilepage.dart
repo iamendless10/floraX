@@ -150,7 +150,7 @@ class profile extends StatelessWidget {
                       width: 380,
                       color: Colors.transparent,
                       child: CircleAvatar(
-                        child: Lottie.network('https://assets8.lottiefiles.com/packages/lf20_DZ8NLt7q12.json'),
+                        child: Lottie.asset('lottie/profile_avatar.json'),
                         // backgroundImage: AssetImage('images/profile3.png'),
                         backgroundColor: Colors.white,
                         radius: 30,
