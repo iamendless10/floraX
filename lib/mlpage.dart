@@ -6,9 +6,11 @@ import 'package:pp_template/splash.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pp_template/backendapi.dart';
 
 class mlpage extends StatefulWidget {
-  const mlpage({Key? key}) : super(key: key);
+  final String path;
+  const mlpage({Key? key, required this.path}) : super(key: key);
 
   @override
   State<mlpage> createState() => _mlpageState();
@@ -16,13 +18,18 @@ class mlpage extends StatefulWidget {
 
 class _mlpageState extends State<mlpage> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 7)).then((value){
-      Navigator.of(context).pushReplacement(CupertinoPageRoute(builder:(ctx) => PlantDetails(plant: 'banana',)));
+    String _ml_keyword = '';
+    detectPlant(widget.path).then((result) {
+      setState(() {
+        _ml_keyword = result;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PlantDetails(plant: _ml_keyword)),
+      );
     });
-
-
   }
   Widget build(BuildContext context) {
     return Scaffold(

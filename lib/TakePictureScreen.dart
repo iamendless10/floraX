@@ -164,11 +164,11 @@ class DisplayPictureScreen extends StatelessWidget {
                       style: GoogleFonts.balsamiqSans(
                           color: Colors.white, fontSize: 19),
                     ),
-                    onPressed: () {
-                      // detectPlant(imagePath);
+                    onPressed: () async {
+                      // String _ml_keyword = await detectPlant(imagePath);
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => mlpage()),
+                          MaterialPageRoute(builder: (context) => mlpage(path: imagePath,)),
                         );
 
                     },

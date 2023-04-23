@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
-const String apiUrl = 'http://192.168.129.226:5000';
+const String apiUrl = 'http://192.168.29.226:5000';
 
 Future <bool> loginUser(String email, String password) async{
   var response = await http.put(Uri.parse(apiUrl+'/user/login'),
@@ -60,7 +60,7 @@ Future<String> getUsername(String email) async{
   return '';
 }
 
-Future<bool> detectPlant(String imagePath) async {
+Future<String> detectPlant(String imagePath) async {
   var imageFile = File(imagePath);
   var stream = http.ByteStream(imageFile.openRead());
   var length = await imageFile.length();
@@ -71,12 +71,7 @@ Future<bool> detectPlant(String imagePath) async {
   var response = await request.send();
   if (response.statusCode == 200) {
     var jsonResponse = json.decode(await response.stream.bytesToString());
-    if(jsonResponse['valid'] == 'true') {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
+    return jsonResponse['name'];
   }
+  return '';
 }
