@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pp_template/homescreen.dart';
+import 'package:pp_template/TakePictureScreen.dart';
+import 'package:camera/camera.dart';
+import 'package:pp_template/profilepage.dart';
+
+
 
 class SearchBarScreen extends StatefulWidget {
   const SearchBarScreen({Key? key}) : super(key: key);
@@ -11,6 +16,7 @@ class SearchBarScreen extends StatefulWidget {
 }
 
 class _SearchBarScreenState extends State<SearchBarScreen> {
+  int _selectedIndex = 1;
   final List<Map<String, dynamic>> _allUsers = [
     {
       "image":
@@ -140,12 +146,16 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
             color: Colors.white,
             activeColor: Color(0xff393053),
             tabBackgroundColor: Color(0xFFD0BBBA),
+            selectedIndex: _selectedIndex,
             padding: EdgeInsets.all(10),
             tabs: [
               GButton(icon: Icons.home,
                 gap: 9,
                 text: 'Home',
                 onPressed: () {
+                  setState(() {
+                    _selectedIndex = 0; // Set the selected index when pressed
+                  });
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => homescreen()),
@@ -154,32 +164,44 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
               ),
               GButton(icon: Icons.search,
                 text: 'Search',
-                onPressed: () {
-                setState(() {
-                });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchBarScreen()),
-                  );
-                },
+                // onPressed: () {
+                // setState(() {
+                // });
+                // //   Navigator.push(
+                // //     context,
+                // //     MaterialPageRoute(builder: (context) => SearchBarScreen()),
+                // //   );
+                // // },
               ),
               GButton(icon: Icons.qr_code_scanner,
                 text: 'Scan',
-                // onPressed: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(builder: (context) => scanscreen()),
-                //   );
-                // },
+                onPressed: () async{
+                  // Ensure that plugin services are initialized so that `availableCameras()`
+                  // can be called before `runApp()`
+                  WidgetsFlutterBinding.ensureInitialized();
+
+                  // Obtain a list of the available cameras on the device.
+                  final cameras = await availableCameras();
+
+                  // Select the back camera from the list of available cameras.
+                  final camera = cameras.firstWhere(
+                        (camera) => camera.lensDirection == CameraLensDirection.back,
+                    orElse: () => throw StateError('No back camera available'),
+                  );
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TakePictureScreen(camera: camera)),
+                  );
+                },
               ),
               GButton(icon: Icons.person_outline_rounded,
                 text: 'Profile',
-                // onPressed: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(builder: (context) => profilescreen()),
-                //   );
-                // },
+                  onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => profile()),
+                  );}
               ),
 
             ],

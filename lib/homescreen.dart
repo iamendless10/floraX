@@ -57,12 +57,12 @@ class _homescreenState extends State<homescreen> {
               GButton(icon: Icons.home,
                 gap: 9,
                 text: 'Home',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => homescreen()),
-                  );
-                },
+                // onPressed: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => homescreen()),
+                //   );
+                // },
               ),
               GButton(icon: Icons.search,
               text: 'Search',
