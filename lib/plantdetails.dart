@@ -114,6 +114,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                   width: 380,
                   color: Colors.white,
                   child: ListView(
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     children: [
                       Padding(

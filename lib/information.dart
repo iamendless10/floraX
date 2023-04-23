@@ -145,6 +145,7 @@ class _informationState extends State<information> {
                             width: 380,
                             color: Color(0xFFE5EADA),
                             child: ListView(
+                              physics: const BouncingScrollPhysics(),
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
@@ -357,6 +358,7 @@ class _informationState extends State<information> {
                             width: 380,
                             color: Color(0xFFE5EADA),
                             child: ListView(
+                              physics: const BouncingScrollPhysics(),
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
@@ -505,6 +507,7 @@ class _informationState extends State<information> {
                             width: 380,
                             color: Color(0xFFE5EADA),
                             child: ListView(
+                              physics: const BouncingScrollPhysics(),
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
