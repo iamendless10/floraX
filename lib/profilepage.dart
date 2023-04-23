@@ -8,6 +8,7 @@ import 'package:camera/camera.dart';
 import 'Homescreen.dart';
 import 'SearchBarScreen.dart';
 import 'TakePictureScreen.dart';
+import 'aboutus.dart';
 
 class profile extends StatelessWidget {
   const profile({Key? key}) : super(key: key);
@@ -248,7 +249,7 @@ class profile extends StatelessWidget {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => profile()),
+                            MaterialPageRoute(builder: (context) => aboutus()),
                           );
                         },
                         child: Row(
