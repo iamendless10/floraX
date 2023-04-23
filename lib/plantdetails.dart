@@ -1,10 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:http/http.dart' as http;
+import 'package:pp_template/backendapi.dart';
+import 'dart:convert';
 
-class PlantDetails extends StatelessWidget {
-  const PlantDetails({Key? key}) : super(key: key);
 
+class PlantDetails extends StatefulWidget {
+  final String plant;
+  const PlantDetails({Key? key, required this.plant}) : super(key: key);
+
+  @override
+  _PlantDetailsState createState() => _PlantDetailsState();
+}
+
+class _PlantDetailsState extends State<PlantDetails> {
+  Map<String, dynamic> resp = {};
+  @override
+  void initState()
+  {
+    getPlantInfo();
+    super.initState();
+  }
+
+  Future getPlantInfo() async{
+    String apiResponse = '';
+    http.Response response;
+    response= await http.put(Uri.parse(apiUrl+"/plant"),
+      headers:  {'Content-Type': 'application/json'},
+      body: json.encode({'name' :widget.plant}),);
+    if(response.statusCode == 200)
+      {
+        setState(() {
+          apiResponse = response.body;
+          resp = json.decode(apiResponse);
+        });
+      }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +60,7 @@ class PlantDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Monstera',
+                        resp['display_name'] ?? 'Unknown',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.josefinSans(
                           color: Color(0xFF000000),
@@ -46,7 +78,7 @@ class PlantDetails extends StatelessWidget {
                   color: Color(0xFFDEEBBD),
                   child: Column(
                     children: [
-                      Text('Monstera deliciosa',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 22,),),
+                      Text(resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 22,),),
                     ],
                   ),
                 ),
@@ -127,11 +159,11 @@ class PlantDetails extends StatelessWidget {
 
                                       child: Center(
                                           child: Text(
-                                        '10 %',
+                                        resp['water_per_day'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
-                                          fontSize: 60,
+                                          fontSize: 40,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
@@ -149,7 +181,7 @@ class PlantDetails extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
                                       color: Color(0xFF5D8233)),
-                                  child: Text('Water Required',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                  child: Text('Water / Day',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
                                 ),
                               ),
                             ],
@@ -195,11 +227,11 @@ class PlantDetails extends StatelessWidget {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        '74 %',
+                                        resp['sunlight_per_day'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
-                                          fontSize: 50,
+                                          fontSize: 40,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
@@ -215,7 +247,7 @@ class PlantDetails extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(topLeft: Radius.circular(30)),
                                       color: Color(0xFF5D8233)),
-                                  child: Text('Light',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                  child: Text('Sunlight / Day',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
                                 ),
                               ),
                             ],
@@ -262,11 +294,11 @@ class PlantDetails extends StatelessWidget {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        '34 .C',
+                                        resp['temp'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
-                                          fontSize: 50,
+                                          fontSize: 40,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
@@ -328,11 +360,11 @@ class PlantDetails extends StatelessWidget {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        '19 %',
+                                        resp['humidity'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
-                                          fontSize: 50,
+                                          fontSize: 40,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
@@ -394,11 +426,11 @@ class PlantDetails extends StatelessWidget {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        '12 %',
+                                        resp['fertilizer'] ?? "Unknown",
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
-                                          fontSize: 50,
+                                          fontSize: 40,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
@@ -414,7 +446,7 @@ class PlantDetails extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
                                       color: Color(0xFF5D8233)),
-                                  child: Text('Fertilizer',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                  child: Text('Fertilizer / HA',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
                                 ),
                               ),
                             ],
@@ -465,7 +497,7 @@ class PlantDetails extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
-                                          fontSize: 50,
+                                          fontSize: 40,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
@@ -516,7 +548,7 @@ class PlantDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Monstera',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Color(0xFF3C3F41),fontSize: 38,),),
+                            Text(resp['display_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Color(0xFF3C3F41),fontSize: 38,),),
                           ],
                         ),
                       ),
@@ -528,7 +560,7 @@ class PlantDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Monstera deliciosa',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                            Text(resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
                           ],
                         ),
                       ),
@@ -540,7 +572,7 @@ class PlantDetails extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text('Monstera is a tropical plant native to Central and South America, prized for its large, perforated leaves and unique appearance. It is a popular houseplant and is believed to bring good luck and prosperity',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                            Text(resp['description'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
                           ],
                         ),
                       ),
@@ -564,7 +596,8 @@ class PlantDetails extends StatelessWidget {
                         child: Row(
                           children: <Widget>[
                             Icon(Icons.thermostat,color: Colors.black,),
-                            Text('    Minimum 22 .C',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF3C3F41),fontSize: 13,),),
+
+                            Text('    Minimum ' + (resp['temp'] ?? ''), textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF3C3F41),fontSize: 13,),),
                           ],
                         ),
                       ),
