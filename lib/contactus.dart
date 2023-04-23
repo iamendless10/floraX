@@ -12,56 +12,12 @@ class contactus extends StatefulWidget {
 
 class _contactusState extends State<contactus> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _phonenumberController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
   bool _emailinValid=false;
-  bool _passwordinValid = false;
 
   void _validateInputs() async{
-    String email = _emailController.text.trim();
-    String password = _passwordController.text.trim();
-
-    if (email == null || email.isEmpty) {
-      setState(() {
-        _emailinValid = true;
-      });
-    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
-      setState(() {
-        _emailinValid = true;
-      });
-    } else {
-      setState(() {
-        _emailinValid = false;
-      });
-    }
-
-    if (password==null || password.isEmpty)
-    {
-      setState(() {
-        _passwordinValid = true;
-      });
-    }
-    else{
-      setState(() {
-        _passwordinValid = false;
-      });
-    }
-
-    if(_emailinValid == false && _passwordinValid == false)
-    {
-      //Sending to API
-      bool valid  = await backendapi.loginUser(email, password);
-      if(valid==true)
-      {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (_) => homescreen()));
-      }
-      else{
-        setState(() {
-          _emailController.text = '';
-          _passwordController.text = '';
-        });
-      }
-    }
   }
 
   @override
@@ -98,7 +54,7 @@ class _contactusState extends State<contactus> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextFormField(
-                    controller: _emailController,
+                    controller: _usernameController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Username',
@@ -116,7 +72,7 @@ class _contactusState extends State<contactus> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextFormField(
-                    controller: _emailController,
+                    controller: _phonenumberController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Phone Number',
@@ -148,12 +104,11 @@ class _contactusState extends State<contactus> {
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
                   obscureText: true,
-                  controller: _passwordController,
+                  controller: _messageController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Message or Feedback',
-                      hintText: '',
-                      errorText: _passwordinValid? "" : null),
+                      hintText: '',),
 
                 ),
               ),
