@@ -47,7 +47,7 @@ class _beforetestState extends State<beforetest> {
                 color: Colors.transparent,
                 height: 180,
                 width: 200,
-                child: Lottie.network('https://assets1.lottiefiles.com/packages/lf20_xd9ypluc.json',),
+                child: Lottie.asset('lottie/plantsplash.json',),
               ),
             ),
             SizedBox(height: 22,),

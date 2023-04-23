@@ -84,7 +84,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   width: 200,
                   height: 250,
                   color: Colors.transparent,
-                  child: Lottie.network('https://assets10.lottiefiles.com/packages/lf20_NODCLWy3iX.json'),
+                  child: Lottie.asset('lottie/loginperson.json'),
               ),
               SizedBox(height: 10,),
               Container(

@@ -150,7 +150,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                       width: 180,
 
                                       color: Color(0xFFF7FBEC),
-                                      child: Lottie.network('https://assets2.lottiefiles.com/packages/lf20_w9GTXN.json'),
+                                      child: Lottie.asset('lottie/plant_water.json'),
                                     ),
                                     Container(
                                       height: 80,
@@ -215,7 +215,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                 width: 180,
 
                                 color: Color(0xFFF7FBEC),
-                                child: Lottie.network('https://assets10.lottiefiles.com/private_files/lf30_6gqfjgqh.json'),
+                                child: Lottie.asset('lottie/plant_sun.json'),
                               ),
                               Container(
                                 decoration: BoxDecoration(
@@ -282,7 +282,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                 width: 180,
 
                                 color: Color(0xFFF7FBEC),
-                                child: Lottie.network('https://assets7.lottiefiles.com/temp/lf20_V92Q4R.json'),
+                                child: Lottie.asset('lottie/plant_temp.json'),
                               ),
                               Container(
                                 decoration: BoxDecoration(
@@ -348,7 +348,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                 width: 180,
 
                                 color: Color(0xFFF7FBEC),
-                                child: Lottie.network('https://assets1.lottiefiles.com/packages/lf20_bur77wxl.json'),
+                                child: Lottie.asset('lottie/plant_humidity.json'),
                               ),
                               Container(
                                 decoration: BoxDecoration(
@@ -414,7 +414,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                 width: 180,
 
                                 color: Color(0xFFF7FBEC),
-                                child: Lottie.network('https://assets4.lottiefiles.com/packages/lf20_hhoese47.json'),
+                                child: Lottie.asset('lottie/plant_fertilizer.json'),
                               ),
                               Container(
                                 decoration: BoxDecoration(
@@ -480,7 +480,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                 width: 180,
 
                                 color: Color(0xFFF7FBEC),
-                                child: Lottie.network('https://assets6.lottiefiles.com/packages/lf20_nfxa6agk.json'),
+                                child: Lottie.asset('lottie/plant_next_watering.json'),
                               ),
 
                               Container(

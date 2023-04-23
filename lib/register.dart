@@ -116,7 +116,7 @@ class _registerState extends State<register> {
                 width: 250,
                 height: 200,
                 color: Colors.transparent,
-                child: Lottie.network('https://assets9.lottiefiles.com/datafiles/6deVuMSwjYosId3/data.json'),
+                child: Lottie.asset('lottie/signupperson.json'),
               ),
               SizedBox(height: 10,),
               Container(

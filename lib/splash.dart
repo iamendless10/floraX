@@ -59,7 +59,7 @@ class splash extends StatelessWidget {
               height: 258,
               width: 360,
               color: Colors.white,
-              child: Lottie.network('https://assets2.lottiefiles.com/packages/lf20_ul9qza1y.json',),
+              child: Lottie.asset('lottie/splash.json'),
             ),
             Container(
               height: 80,
