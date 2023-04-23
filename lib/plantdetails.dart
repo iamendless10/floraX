@@ -678,7 +678,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   image: DecorationImage(
-                    image: AssetImage('images/monstera.png'),
+                    image: NetworkImage(resp['image']),
                     fit: BoxFit.fill,
                   ),
                 ),
