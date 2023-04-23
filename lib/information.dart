@@ -1,10 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-import 'plantdetails.dart';
+import 'package:http/http.dart' as http;
+import 'package:pp_template/backendapi.dart';
+import 'dart:convert';
 
-class information extends StatelessWidget {
-  const information({Key? key}) : super(key: key);
+
+
+class information extends StatefulWidget {
+  final String plant;
+  const information({Key? key, required this.plant}) : super(key: key);
+  @override
+  _informationState createState() => _informationState();
+}
+class _informationState extends State<information> {
+  Map<String, dynamic> resp = {};
+  @override
+  void initState()
+  {
+    getPlantInfo();
+    super.initState();
+  }
+  Future getPlantInfo() async{
+    String apiResponse = '';
+    http.Response response;
+    response= await http.put(Uri.parse(apiUrl+"/plant"),
+      headers:  {'Content-Type': 'application/json'},
+      body: json.encode({'name' :widget.plant}),);
+    if(response.statusCode == 200)
+    {
+      setState(() {
+        apiResponse = response.body;
+        resp = json.decode(apiResponse);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +116,8 @@ class information extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('Monstera Deliciosa',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 28,),),
-                          Text('Monstera',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF5C5C5C),fontSize: 20,),),
+                          Text(resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 28,),),
+                          Text(resp['display_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF5C5C5C),fontSize: 20,),),
                         ],
                       ),
                     ),
@@ -105,7 +134,7 @@ class information extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text('Pests',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text('Mealybugs, scale, spider mites, bacterial leaf spot, root rot, and anthracnose can all affect monstera plants. A variety of methods, including insecticides, horticultural oil, and repotting can address these issues. However, pests and diseases are best prevented with an optimal growing environment.',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(resp['pests'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                           Container(
                             height: 50,
                             width: 10,
@@ -293,7 +322,7 @@ class information extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text('Growing Condition',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text('Monstera requires a warm, humid climate to grow and is typically grown in tropical regions. It prefers well-drained soil and indirect sunlight.',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(resp['growing_conditions'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                         ],
                       ),
                     ),
@@ -305,7 +334,7 @@ class information extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text('Health benefits',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text('Monstera is not typically consumed for its health benefits.',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(resp['health_benefits'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                         ],
                       ),
                     ),
@@ -317,7 +346,7 @@ class information extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text('Culinary Uses',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text('Monstera fruit is edible and has a sweet, tropical flavor, but it is not widely consumed. The leaves of the Monstera deliciosa plant are sometimes used in salads or as a garnish, but should be cooked before consumption due to the presence of calcium oxalate crystals.',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(resp['culinary_uses'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                           Container(
                             height: 50,
                             width: 10,
@@ -465,7 +494,7 @@ class information extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text('Common diseases',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text('Monstera is susceptible to several pests and diseases, including spider mites, mealybugs, and root rot.',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(resp['common_diseases'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                           Container(
                             height: 50,
                             width: 10,

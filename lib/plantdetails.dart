@@ -653,7 +653,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => information()),
+                            MaterialPageRoute(builder: (context) => information(plant: widget.plant,)),
                           );
                         },
                         child: Container(
