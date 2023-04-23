@@ -2,6 +2,8 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:lottie/lottie.dart';
+import 'package:pp_template/contactus.dart';
 
 import 'Homescreen.dart';
 import 'SearchBarScreen.dart';
@@ -137,7 +139,7 @@ class profile extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: 270,
+                height: 250,
                 width: 380,
                 color: Colors.white,
                 child: Column(
@@ -148,7 +150,8 @@ class profile extends StatelessWidget {
                       width: 380,
                       color: Colors.transparent,
                       child: CircleAvatar(
-                        backgroundImage: AssetImage('images/profile3.png'),
+                        child: Lottie.network('https://assets8.lottiefiles.com/packages/lf20_DZ8NLt7q12.json'),
+                        // backgroundImage: AssetImage('images/profile3.png'),
                         backgroundColor: Colors.white,
                         radius: 30,
                       ),
@@ -180,47 +183,55 @@ class profile extends StatelessWidget {
                       BoxDecoration(
                         color: Color(0xFFC3A8A1),
                         borderRadius: BorderRadius.circular(30),),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            height: 60,
-                            width: 100,
-                            color: Colors.transparent,
-                            child: Icon(
-                              Icons.call,
-                              color: Colors.black,
-                              size: 30,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => contactus()),
+                          );
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              height: 60,
+                              width: 100,
+                              color: Colors.transparent,
+                              child: Icon(
+                                Icons.call,
+                                color: Colors.black,
+                                size: 30,
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 60,
-                            width: 120,
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text('Contact Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
-                              ],
+                            Container(
+                              height: 60,
+                              width: 120,
+                              color: Colors.transparent,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text('Contact Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 60,
-                            width: 100,
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                 Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                              ],
+                            Container(
+                              height: 60,
+                              width: 100,
+                              color: Colors.transparent,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                   Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -233,47 +244,55 @@ class profile extends StatelessWidget {
                       BoxDecoration(
                         color: Color(0xFFC3A8A1),
                         borderRadius: BorderRadius.circular(30),),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            height: 60,
-                            width: 100,
-                            color: Colors.transparent,
-                            child: Icon(
-                              Icons.person,
-                              color: Colors.black,
-                              size: 30,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => profile()),
+                          );
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              height: 60,
+                              width: 100,
+                              color: Colors.transparent,
+                              child: Icon(
+                                Icons.person,
+                                color: Colors.black,
+                                size: 30,
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 60,
-                            width: 120,
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text('About Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
-                              ],
+                            Container(
+                              height: 60,
+                              width: 120,
+                              color: Colors.transparent,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text('About Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 60,
-                            width: 100,
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                              ],
+                            Container(
+                              height: 60,
+                              width: 100,
+                              color: Colors.transparent,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -286,48 +305,56 @@ class profile extends StatelessWidget {
                       BoxDecoration(
                         color: Color(0xFFC3A8A1),
                         borderRadius: BorderRadius.circular(30),),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            height: 60,
-                            width: 100,
-                            color: Colors.transparent,
-                            child: Icon(
-                              Icons.qr_code_scanner_rounded,
-                              color: Colors.black,
-                              size: 30,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => profile()),
+                          );
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              height: 60,
+                              width: 100,
+                              color: Colors.transparent,
+                              child: Icon(
+                                Icons.qr_code_scanner_rounded,
+                                color: Colors.black,
+                                size: 30,
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 60,
-                            width: 120,
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text('Plant Detecter',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
-                              ],
+                            Container(
+                              height: 60,
+                              width: 120,
+                              color: Colors.transparent,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text('Plant Detecter',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 60,
-                            width: 100,
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
+                            Container(
+                              height: 60,
+                              width: 100,
+                              color: Colors.transparent,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
 
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                              ],
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
