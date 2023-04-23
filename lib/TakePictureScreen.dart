@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:camera/camera.dart';
+import 'package:pp_template/mlpage.dart';
 import 'package:pp_template/signinsplash.dart';
 import 'package:flutter/material.dart';
 import 'package:pp_template/backendapi.dart';
@@ -164,7 +165,12 @@ class DisplayPictureScreen extends StatelessWidget {
                           color: Colors.white, fontSize: 19),
                     ),
                     onPressed: () {
-                      detectPlant(imagePath);
+                      // detectPlant(imagePath);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => mlpage()),
+                        );
+
                     },
                   ),
                 ],
