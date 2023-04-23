@@ -97,7 +97,7 @@ class _informationState extends State<information> {
                       decoration:
                       BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(resp['details_img']),
+                          image: NetworkImage(resp['display_img']),
                           fit: BoxFit.fill,
                         ),
                         borderRadius: BorderRadius.circular(50),

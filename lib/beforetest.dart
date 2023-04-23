@@ -8,7 +8,8 @@ import 'package:pp_template/test.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class beforetest extends StatefulWidget {
-  const beforetest({Key? key}) : super(key: key);
+  final String plant;
+  const beforetest({Key? key, required this.plant}) : super(key: key);
 
   @override
   State<beforetest> createState() => _beforetestState();
@@ -19,7 +20,7 @@ class _beforetestState extends State<beforetest> {
   void initState(){
     super.initState();
     Future.delayed(Duration(seconds: 3)).then((value){
-      Navigator.of(context).pushReplacement(CupertinoPageRoute(builder:(ctx) => PlantDetails(plant: 'banana',)));
+      Navigator.of(context).pushReplacement(CupertinoPageRoute(builder:(ctx) => PlantDetails(plant: widget.plant,)));
     });
 
 
