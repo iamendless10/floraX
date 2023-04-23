@@ -43,7 +43,7 @@ class _contactusState extends State<contactus> {
                 width: 500,
                 height: 250,
                 color: Colors.transparent,
-                child: Lottie.network('https://assets10.lottiefiles.com/packages/lf20_Zmtk8qDFb2.json'),
+                child: Lottie.asset('lottie/message.json'),
               ),
               SizedBox(height: 10,),
               Container(
