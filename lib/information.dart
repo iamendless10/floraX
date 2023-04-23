@@ -97,7 +97,7 @@ class _informationState extends State<information> {
                       decoration:
                       BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('images/monstra2.png'),
+                          image: NetworkImage(resp['details_img']),
                           fit: BoxFit.fill,
                         ),
                         borderRadius: BorderRadius.circular(50),
@@ -168,7 +168,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Mealy bugs',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['pest_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -178,7 +178,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_pests.webp'),
+                                              image: NetworkImage(resp['pest_1_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -208,7 +208,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Spider Mites',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['pest_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -218,7 +218,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_pests2.webp'),
+                                              image: NetworkImage(resp['pest_2_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -248,7 +248,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Scale',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['pest_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -258,7 +258,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_pests3.webp'),
+                                              image: NetworkImage(resp['pest_3_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -288,7 +288,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Aphids',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['pest_4'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -298,7 +298,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_pests4.webp'),
+                                              image: NetworkImage(resp['pest_4_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -306,7 +306,7 @@ class _informationState extends State<information> {
                                       ],
                                     ),
                                   ),
-                                ),
+                                )
 
                               ],
                             ),
@@ -380,7 +380,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('delicious monster',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['culinary_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -390,7 +390,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_fruit.webp'),
+                                              image: NetworkImage(resp['culinary_1_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -420,7 +420,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Dehumidifying',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['culinary_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -430,7 +430,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_fruit2.webp'),
+                                              image: NetworkImage(resp['culinary_2_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -460,7 +460,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Odor Elimination',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['culinary_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -470,7 +470,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_fruit3.webp'),
+                                              image: NetworkImage(resp['culinary_3_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -528,7 +528,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Yellowing Leaves',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['disease_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -538,7 +538,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_dis.jpg'),
+                                              image: NetworkImage(resp['disease_1_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -568,7 +568,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('Browning Leaf',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['disease_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -578,7 +578,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_dis2.jpg'),
+                                              image: NetworkImage(resp['disease_2_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -608,7 +608,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text('No Fenestration',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(resp['disease_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -618,7 +618,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: AssetImage('images/monstera_dis3.jpg'),
+                                              image: NetworkImage(resp['disease_3_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
