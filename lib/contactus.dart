@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pp_template/register.dart';
 import 'package:pp_template/backendapi.dart' as backendapi;
+import 'package:pp_template/sent.dart';
 
 class contactus extends StatefulWidget {
   @override
@@ -18,6 +19,10 @@ class _contactusState extends State<contactus> {
   bool _emailinValid=false;
 
   void _validateInputs() async{
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => sent()),
+    );
   }
 
   @override

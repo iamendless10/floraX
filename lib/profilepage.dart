@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/contactus.dart';
-
+import 'package:camera/camera.dart';
 import 'Homescreen.dart';
 import 'SearchBarScreen.dart';
 import 'TakePictureScreen.dart';
@@ -306,11 +306,24 @@ class profile extends StatelessWidget {
                         color: Color(0xFFC3A8A1),
                         borderRadius: BorderRadius.circular(30),),
                       child: GestureDetector(
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => profile()),
-                          );
+                        onTap: ()async{
+                            // Ensure that plugin services are initialized so that `availableCameras()`
+                            // can be called before `runApp()`
+                            WidgetsFlutterBinding.ensureInitialized();
+
+                            // Obtain a list of the available cameras on the device.
+                            final cameras = await availableCameras();
+
+                            // Select the back camera from the list of available cameras.
+                            final camera = cameras.firstWhere(
+                                  (camera) => camera.lensDirection == CameraLensDirection.back,
+                              orElse: () => throw StateError('No back camera available'),
+                            );
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => TakePictureScreen(camera: camera)),
+                            );
                         },
                         child: Row(
                           children: <Widget>[
