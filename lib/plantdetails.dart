@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:pp_template/backendapi.dart';
 import 'dart:convert';
 
+import 'package:pp_template/information.dart';
+
 
 class PlantDetails extends StatefulWidget {
   final String plant;
@@ -647,21 +649,29 @@ class _PlantDetailsState extends State<PlantDetails> {
                           ],
                         ),
                       ),
-                      Container(
-                        height: 110,
-                        width: 180,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(50),
-                            )
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Text('      '),
-                            Icon(Icons.info_rounded,color: Color(0xFF202024),),
-                            Text('   Information',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF202024),fontSize: 18,),),
-                          ],
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => information()),
+                          );
+                        },
+                        child: Container(
+                          height: 110,
+                          width: 180,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(50),
+                              )
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              Text('      '),
+                              Icon(Icons.info_rounded,color: Color(0xFF202024),),
+                              Text('   Information',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF202024),fontSize: 18,),),
+                            ],
+                          ),
                         ),
                       ),
                     ],

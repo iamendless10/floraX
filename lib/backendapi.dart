@@ -8,20 +8,20 @@ Future <bool> loginUser(String email, String password) async{
   var response = await http.put(Uri.parse(apiUrl+'/user/login'),
       body: {'email': email, 'password': password});
   if(response.statusCode == 200)
-    {
-      var jsonResponse = json.decode(response.body);
-      if(jsonResponse['valid'] == 'true') {
-        return true;
-      }
-      else
-        {
-          return false;
-        }
+  {
+    var jsonResponse = json.decode(response.body);
+    if(jsonResponse['valid'] == 'true') {
+      return true;
     }
-  else
+    else
     {
       return false;
     }
+  }
+  else
+  {
+    return false;
+  }
 }
 
 Future <bool> registerUser(String email, String password, String username) async{
@@ -43,6 +43,21 @@ Future <bool> registerUser(String email, String password, String username) async
   {
     return false;
   }
+}
+
+Future<String> getUsername(String email) async{
+  var response = await http.put(Uri.parse(apiUrl+'/user/info'),
+      body : {'email':email});
+
+  if(response.statusCode == 200)
+  {
+    var jsonResponse = json.decode(response.body);
+    if(jsonResponse['username'].toString().isNotEmpty)
+    {
+      return jsonResponse['username'];
+    }
+  }
+  return '';
 }
 
 Future<bool> detectPlant(String imagePath) async {
