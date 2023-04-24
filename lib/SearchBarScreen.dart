@@ -20,73 +20,79 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
   final List<Map<String, dynamic>> _allUsers = [
     {
       "image":
-      "https://nurserynisarga.in/wp-content/uploads/2019/09/Neem.jpg",
+      "",
       "id": 1,
-      "name": "Neem",
-      "des": "Suitable for your region",
+      "name": "Hibiscus",
+      "des": "Hibiscus Rosasinensis",
     },
     {
       "id": 2,
-      "name": "Mango tree",
-      "des": " Not Suitable for your region ",
+      "name": "Mango",
+      "des": "Mangifera indica",
       "image":
-      "https://cdn.shopify.com/s/files/1/0634/0997/9621/products/alphonso-mango-plant-ratnagiri-grafted-1-healthy-live-plant-kadiyam-nursery-1_1200x1200.jpg?v=1662731270",
+      "",
     },
     {
       "id": 3,
-      "name": "****",
-      "des": "****",
+      "name": "Banana",
+      "des": "Musa Acuminata",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 4,
-      "name": "****",
-      "des": "****",
+      "name": "Hibiscus",
+      "des": "Hibiscus Rosasinensis",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 5,
-      "name": "****",
-      "des": "****",
+      "name": "Neem",
+      "des": "Azadirachta Indica",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 6,
-      "name": "****",
-      "des": "****",
+      "name": "Coconut",
+      "des": "Cocos Nucifera",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 7,
-      "name": "****",
-      "des": "****",
+      "name": "Mango",
+      "des": "Mangifera Indica",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 8,
-      "name": "****",
-      "des": "****",
+      "name": "Rose",
+      "des": "Rosa Rubiginosa",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 9,
-      "name": "****",
-      "des": "****",
+      "name": "Palm Tree",
+      "des": "Arecaceae",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
     },
     {
       "id": 10,
-      "name": "****",
-      "des": "****",
+      "name": "Tomato",
+      "des": "Solanum Lycopersicum",
       "image":
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTree&psig=AOvVaw30Je3ULb-CbPK727Z4q52q&ust=1681563322586000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDo6tW1qf4CFQAAAAAdAAAAABAE",
+      "",
+    },    {
+      "id": 11,
+      "name": "Banyan",
+      "des": "Ficus Benghalensis",
+      "image":
+      "",
     },
   ];
 
@@ -254,7 +260,7 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
                 ),
               )
                   : const Text(
-                'No results found Please try with diffrent search',
+                'Oops! No results found.',
                 style: TextStyle(fontSize: 24),
               ),
             ),
