@@ -41,6 +41,7 @@ class profile extends StatelessWidget {
             color: Colors.white,
             activeColor: Color(0xff393053),
             tabBackgroundColor: Color(0xFFD0BBBA),
+            selectedIndex: 3,
             padding: EdgeInsets.all(10),
             tabs: [
               GButton(icon: Icons.home,
@@ -86,12 +87,12 @@ class profile extends StatelessWidget {
               ),
               GButton(icon: Icons.person_outline_rounded,
                 text: 'Profile',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => profile()),
-                  );
-                },
+                // onPressed: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => profile()),
+                //   );
+                // },
               ),
 
             ],
