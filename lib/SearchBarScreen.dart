@@ -27,68 +27,54 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
     },
     {
       "id": 2,
-      "name": "Mango",
-      "des": "Mangifera indica",
-      "image":
-      "",
-    },
-    {
-      "id": 3,
       "name": "Banana",
       "des": "Musa Acuminata",
       "image":
       "",
     },
     {
-      "id": 4,
-      "name": "Hibiscus",
-      "des": "Hibiscus Rosasinensis",
-      "image":
-      "",
-    },
-    {
-      "id": 5,
+      "id": 3,
       "name": "Neem",
       "des": "Azadirachta Indica",
       "image":
       "",
     },
     {
-      "id": 6,
+      "id": 4,
       "name": "Coconut",
       "des": "Cocos Nucifera",
       "image":
       "",
     },
     {
-      "id": 7,
+      "id": 5,
       "name": "Mango",
       "des": "Mangifera Indica",
       "image":
       "",
     },
     {
-      "id": 8,
+      "id": 6,
       "name": "Rose",
       "des": "Rosa Rubiginosa",
       "image":
       "",
     },
     {
-      "id": 9,
+      "id": 7,
       "name": "Palm Tree",
       "des": "Arecaceae",
       "image":
       "",
     },
     {
-      "id": 10,
+      "id": 8,
       "name": "Tomato",
       "des": "Solanum Lycopersicum",
       "image":
       "",
     },    {
-      "id": 11,
+      "id": 9,
       "name": "Banyan",
       "des": "Ficus Benghalensis",
       "image":
