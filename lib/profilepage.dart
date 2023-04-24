@@ -5,6 +5,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/contactus.dart';
 import 'package:camera/camera.dart';
+import 'package:pp_template/fertilizer.dart';
 import 'Homescreen.dart';
 import 'SearchBarScreen.dart';
 import 'TakePictureScreen.dart';
@@ -381,6 +382,13 @@ class profile extends StatelessWidget {
                       BoxDecoration(
                         color: Color(0xFFC3A8A1),
                         borderRadius: BorderRadius.circular(30),),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => fertilizer()),
+                          );
+                        },
                       child: Row(
                         children: <Widget>[
                           Container(
@@ -424,8 +432,6 @@ class profile extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
                     ),
                   ],
                 ),
