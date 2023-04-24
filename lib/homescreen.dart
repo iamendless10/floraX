@@ -468,7 +468,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Water /day',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('0.1 ML',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text('25 L',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -495,7 +495,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Humidity',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('17%',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text('65%',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -549,7 +549,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Avg Height',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('5-6 ft',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text('15 mtrs',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
