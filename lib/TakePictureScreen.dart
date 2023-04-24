@@ -8,6 +8,9 @@ import 'package:pp_template/signinsplash.dart';
 import 'package:flutter/material.dart';
 import 'package:pp_template/backendapi.dart';
 
+import 'disease.dart';
+import 'diseasesplash.dart';
+
 Future<void> main() async {
   // Ensure that plugin services are initialized so that `availableCameras()`
   // can be called before `runApp()`
@@ -227,7 +230,8 @@ class DisplayPictureScreen extends StatelessWidget {
                       // String _ml_keyword = await detectPlant(imagePath);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => mlpage(path: imagePath,)),
+                        MaterialPageRoute(builder: (context) => disease()),
+
                       );
 
                     },

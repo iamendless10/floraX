@@ -134,7 +134,7 @@ class _homescreenState extends State<homescreen> {
                   children: [
                     SizedBox(height: 50,),
                     CircleAvatar(
-                      backgroundImage: AssetImage('images/praanesh.jpg'),
+                      backgroundImage: AssetImage('images/profile5.webp'),
                       backgroundColor: Colors.white,
                       radius: 30,
                     ),
