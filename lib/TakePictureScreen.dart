@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:camera/camera.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pp_template/mlpage.dart';
 import 'package:pp_template/signinsplash.dart';
 import 'package:flutter/material.dart';
@@ -146,20 +147,27 @@ class DisplayPictureScreen extends StatelessWidget {
           children: [
             Container(
                 child: Image.file(File(imagePath))),
-            SizedBox(height: 90,),
+            SizedBox(height: 30,),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Color(0xFFC3999A),
               ),
               height: 60,
-              width: 200,
-              child: Center(child: Column(
+              width: 270,
+              child: Center(child: Row(
                 children: <Widget>[
                   SizedBox(height: 7,),
+                  SizedBox(width: 20,),
+                  Container(
+                    height: 60,
+                    width: 80,
+                    color: Colors.transparent,
+                    child: Lottie.network('https://assets1.lottiefiles.com/packages/lf20_i1ea2anf.json'),
+                  ),
                   TextButton(
                     child: Text(
-                      'Detect',
+                      'Detect Plant',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.balsamiqSans(
                           color: Colors.white, fontSize: 19),
@@ -190,6 +198,45 @@ class DisplayPictureScreen extends StatelessWidget {
             //
             //   },
             // ),
+            SizedBox(height: 30,),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Color(0xFFC3999A),
+              ),
+              height: 60,
+              width: 270,
+              child: Center(child: Row(
+                children: <Widget>[
+                  SizedBox(height: 7,),
+                  SizedBox(width: 20,),
+                  Container(
+                    height: 60,
+                    width: 80,
+                    color: Colors.transparent,
+                    child: Lottie.network('https://assets3.lottiefiles.com/private_files/lf30_mvurfbs7.json'),
+                  ),
+                  TextButton(
+                    child: Text(
+                      'Detect Disease',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.balsamiqSans(
+                          color: Colors.white, fontSize: 19),
+                    ),
+                    onPressed: () async {
+                      // String _ml_keyword = await detectPlant(imagePath);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => mlpage(path: imagePath,)),
+                      );
+
+                    },
+                  ),
+                ],
+              ),
+              ),
+
+            ),
           ],
         ),
 

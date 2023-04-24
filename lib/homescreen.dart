@@ -6,6 +6,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:pp_template/SearchBarScreen.dart';
 import 'package:pp_template/backendapi.dart';
 import 'package:pp_template/beforetest.dart';
+import 'package:pp_template/bluetooth.dart';
 import 'package:pp_template/profilepage.dart';
 import 'package:pp_template/test.dart';
 import 'package:pp_template/TakePictureScreen.dart';
@@ -184,12 +185,12 @@ class _homescreenState extends State<homescreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.add,
+                      Icons.broadcast_on_personal_rounded,
                       color: Colors.white,
                     ),
                     TextButton(
                       child: Text(
-                        'Add a plant',
+                        'Connect to bluetooth mod.',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.balsamiqSans(
                             color: Colors.white, fontSize: 19),
@@ -197,7 +198,7 @@ class _homescreenState extends State<homescreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => homescreen()),
+                          MaterialPageRoute(builder: (context) => bluetooth()),
                         );
                       },
                     ),
