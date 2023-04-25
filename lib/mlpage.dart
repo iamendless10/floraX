@@ -7,6 +7,9 @@ import 'package:lottie/lottie.dart';
 import 'package:pp_template/test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pp_template/backendapi.dart';
+import 'package:http/http.dart' as http;
+import 'package:pp_template/backendapi.dart';
+import 'dart:convert';
 
 class mlpage extends StatefulWidget {
   final String path;
@@ -17,20 +20,46 @@ class mlpage extends StatefulWidget {
 }
 
 class _mlpageState extends State<mlpage> {
+  Map<String, dynamic> resp = {};
+
   @override
   void initState() {
     super.initState();
-    String _ml_keyword = '';
+    String _plant_predicted = '';
     detectPlant(widget.path).then((result) {
       setState(() {
-        _ml_keyword = result;
+        _plant_predicted = result;
       });
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => PlantDetails(plant: _ml_keyword)),
-      // );
+      getPlantInfo(_plant_predicted).then((result) {
+        Future.delayed(Duration(seconds: 3), ()
+        {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PlantDetails(resp: resp)),
+          );
+        });
+      });
+
     });
+
+
   }
+
+  Future getPlantInfo(plant) async{
+    String apiResponse = '';
+    http.Response response;
+    response= await http.put(Uri.parse(apiUrl+"/plant"),
+      headers:  {'Content-Type': 'application/json'},
+      body: json.encode({'name' : plant}),);
+    if(response.statusCode == 200)
+    {
+      setState(() {
+        apiResponse = response.body;
+        resp = json.decode(apiResponse);
+      });
+    }
+  }
+  
   Widget build(BuildContext context) {
     return Scaffold(
       body:Container(

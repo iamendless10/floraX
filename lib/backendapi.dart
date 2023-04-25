@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
-const String apiUrl = 'http://192.168.4.84:5000';
+const String apiUrl = 'http://172.16.121.194:5000';
 
 Future <bool> loginUser(String email, String password) async{
   var response = await http.put(Uri.parse(apiUrl+'/user/login'),
