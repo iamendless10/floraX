@@ -2,10 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'calculate.dart';
 
-class fertilizer extends StatelessWidget {
+class fertilizer extends StatefulWidget {
   const fertilizer({Key? key}) : super(key: key);
+
+  @override
+  State<fertilizer> createState() => _fertilizerState();
+}
+
+class _fertilizerState extends State<fertilizer> {
+  final TextEditingController _acreController = TextEditingController();
+  late double _urea = 50.0;
+  late double _pot_l = 30.0;
+  late double _pot_h = 50.0;
+  late double _fact_l = 35.0;
+  late double _fact_h = 40.0;
+  late double _ams_l = 25.0;
+  late double _ams_h = 30.0;
+  bool _acreainValid= false;
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +69,11 @@ class fertilizer extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextFormField(
-                    decoration:
-                    InputDecoration(
+                    controller: _acreController,
+                    decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Enter in Acre',
-                        ),
+                        labelText: 'Enter Acre',
+                        errorText: _acreainValid ? 'Enter Acre in digits' : null),
                   ),
                 ),
               ),
@@ -75,6 +89,54 @@ class fertilizer extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 20,),
+              Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(30)
+                ),
+                child: TextButton(
+                  
+                  child: Text(
+                    'Calculate',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.balsamiqSans(
+                        color: Colors.white, fontSize: 19),
+                  ),
+                  onPressed: () {
+                    if (!RegExp(r'^\d*\.?\d+$').hasMatch(_acreController.text.trim()))
+                      {
+                        setState(() {
+                          _acreainValid = true;
+                        });
+                      }
+                    else
+                      {
+                        setState(() {
+                          _acreainValid = false;
+                        });
+                      }
+
+                    double? _acre = double.tryParse(_acreController.text.trim());
+
+                    if (_acre != null) {
+                      setState(() {
+                        _urea = _acre * 50.0;
+                        _pot_l = _acre * 30.0;
+                        _pot_h = _acre * 45.0;
+                        _fact_l = _acre * 35.0;
+                        _fact_h  = _acre * 40.0;
+                        _ams_l = _acre * 25.0;
+                        _ams_h = _acre * 30.0;
+
+                      });
+                    }
+                  },
+
+                ),
+              ),
               SizedBox(height: 40,),
               Container(
                 height: 90,
@@ -84,7 +146,7 @@ class fertilizer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Choose your preffered fertilizer combination according to your season',textAlign: TextAlign.start,style: GoogleFonts.prompt(color: Colors.black,fontSize: 18,),),
+                    Text('List of Fertilizer Combinations for you soil type',textAlign: TextAlign.start,style: GoogleFonts.prompt(color: Colors.black,fontSize: 18,),),
                   ],
                 ),
               ),
@@ -95,14 +157,8 @@ class fertilizer extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => calculate()),
-                        );
-                      },
                       child: Container(
-                        height: 100,
+                        height: 120,
                         width: 355,
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -130,7 +186,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Urea 50%',
+                                    'Urea '+ _urea.toString() + ' Kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -157,7 +213,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Potassium 30-50%',
+                                    'Potassium ' + _pot_l.toString()+' - '+_pot_h.toString()+' kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -174,14 +230,8 @@ class fertilizer extends StatelessWidget {
 
                     SizedBox(height: 15,),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => calculate()),
-                        );
-                      },
                       child: Container(
-                        height: 100,
+                        height: 120,
                         width: 355,
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -209,7 +259,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Urea 50%',
+                                    'Urea '+ _urea.toString() + ' Kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -236,7 +286,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Potassium 30-50%',
+                                    'Factamfos ' + _fact_l.toString()+' - '+_fact_h.toString()+' kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -253,14 +303,8 @@ class fertilizer extends StatelessWidget {
 
                     SizedBox(height: 15,),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => calculate()),
-                        );
-                      },
                       child: Container(
-                        height: 100,
+                        height: 120,
                         width: 355,
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -288,7 +332,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Urea 50%',
+                                    'Urea '+ _urea.toString() + ' Kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -315,7 +359,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Potassium 30-50%',
+                                    'Urea '+ _urea.toString() + ' Kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -332,14 +376,8 @@ class fertilizer extends StatelessWidget {
 
                     SizedBox(height: 15,),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => calculate()),
-                        );
-                      },
                       child: Container(
-                        height: 100,
+                        height: 120,
                         width: 355,
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -367,7 +405,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Urea 50%',
+                                    'Urea '+ _urea.toString() + ' Kg',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -394,7 +432,7 @@ class fertilizer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Potassium 30-50%',
+                                    'Ammonium Sulfate ' + _ams_l.toString()+' - '+_ams_h.toString() + ' kg' ,
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       color: Colors.black,
@@ -408,86 +446,6 @@ class fertilizer extends StatelessWidget {
                         ),
                       ),
                     ),
-
-                    SizedBox(height: 15,),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => calculate()),
-                        );
-                      },
-                      child: Container(
-                        height: 100,
-                        width: 355,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
-                          borderRadius: BorderRadius.circular(40),
-                          color: Color(0xFFE7DECC),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              height: 100,
-                              width: 175,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                color: Color(0xFFE7DECC),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Urea 50%',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.prompt(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 100,
-                              width: 5,
-                              color: Color(0xFFF3EAD3),
-                            ),
-                            Container(
-                              height: 100,
-                              width: 175,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                color: Color(0xFFE7DECC),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Potassium 30-50%',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.prompt(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-
                   ],
                 ),
               ),
