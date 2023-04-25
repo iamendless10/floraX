@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:pp_template/disease2.dart';
 import 'package:pp_template/plantdetails.dart';
 import 'package:pp_template/splash.dart';
 import 'package:lottie/lottie.dart';
@@ -20,14 +21,14 @@ class _diseasesplashState extends State<diseasesplash> {
   @override
   void initState() {
     super.initState();
-    String _ml_keyword = '';
-    detectPlant(widget.path).then((result) {
+    String _disease = '';
+    detectDisease(widget.path).then((result) {
       setState(() {
-        _ml_keyword = result;
+        _disease = result;
       });
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PlantDetails(plant: _ml_keyword)),
+        MaterialPageRoute(builder: (context) => disease2(disease: _disease,)),
       );
     });
   }
@@ -54,7 +55,7 @@ class _diseasesplashState extends State<diseasesplash> {
                   color: Colors.transparent,
                   height: 180,
                   width: 200,
-                  child: Lottie.network('https://assets7.lottiefiles.com/packages/lf20_juote5w5.json')
+                  child: Lottie.asset('lottie/disease_splash.json')
               ),
             ),
             SizedBox(height: 22,),

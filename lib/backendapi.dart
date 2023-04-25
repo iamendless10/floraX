@@ -75,3 +75,19 @@ Future<String> detectPlant(String imagePath) async {
   }
   return '';
 }
+
+Future<String> detectDisease(String imagePath) async {
+  var imageFile = File(imagePath);
+  var stream = http.ByteStream(imageFile.openRead());
+  var length = await imageFile.length();
+  var uri = Uri.parse(apiUrl+'/disease/detect');
+  var request = http.MultipartRequest('POST', uri);
+  var multipartFile = http.MultipartFile('image', stream, length, filename: path.basename(imageFile.path));
+  request.files.add(multipartFile);
+  var response = await request.send();
+  if (response.statusCode == 200) {
+    var jsonResponse = json.decode(await response.stream.bytesToString());
+    return jsonResponse['disease'];
+  }
+  return '';
+}

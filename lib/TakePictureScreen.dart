@@ -231,7 +231,7 @@ class DisplayPictureScreen extends StatelessWidget {
                       // String _ml_keyword = await detectPlant(imagePath);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => disease2()),
+                        MaterialPageRoute(builder: (context) => diseasesplash(path: imagePath)),
 
                       );
 

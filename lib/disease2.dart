@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class disease2 extends StatelessWidget {
-  const disease2({Key? key}) : super(key: key);
-
+class disease2 extends StatefulWidget {
+  final String disease;
+  const disease2({Key? key, required this.disease}) : super(key: key);
+  @override
+  _disease2State createState() => _disease2State();
+}
+class _disease2State extends State<disease2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +16,7 @@ class disease2 extends StatelessWidget {
         backgroundColor: Color(0xFF44694B),
         automaticallyImplyLeading: false,
         leading: IconButton(icon: Icon(Icons.arrow_back_ios_rounded),color: Colors.white, onPressed: (){Navigator.pop(context);},),
-        title: Text('           Disease_name',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
+        title: Text('           ' + widget.disease ?? "Disease",textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
         actions: [
           Row(
             children: [
@@ -91,7 +95,7 @@ class disease2 extends StatelessWidget {
                                 height: 150,
                                 width: 280,
                                 color: Colors.transparent,
-                                child: Lottie.network('https://assets7.lottiefiles.com/packages/lf20_prkjnzba.json'),
+                                child: Lottie.asset('lottie/disease_about.json'),
                               )
                             ],
                           ),
@@ -126,7 +130,7 @@ class disease2 extends StatelessWidget {
                                 height: 150,
                                 width: 280,
                                 color: Colors.transparent,
-                                child: Lottie.network('https://assets7.lottiefiles.com/packages/lf20_bXGMKilbSf.json'),
+                                child: Lottie.asset('lottie/disease_symptoms.json'),
                               )
                             ],
                           ),
@@ -161,7 +165,7 @@ class disease2 extends StatelessWidget {
                                 height: 150,
                                 width: 280,
                                 color: Colors.transparent,
-                                child: Lottie.network('https://assets7.lottiefiles.com/temp/lf20_hKSrGc.json'),
+                                child: Lottie.asset('lottie/disease_symptoms.json'),
                               )
                             ],
                           ),
