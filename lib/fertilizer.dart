@@ -146,7 +146,7 @@ class _fertilizerState extends State<fertilizer> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('List of Fertilizer Combinations for you soil type',textAlign: TextAlign.start,style: GoogleFonts.prompt(color: Colors.black,fontSize: 18,),),
+                    Text('List of Fertilizer Combinations for your soil type',textAlign: TextAlign.start,style: GoogleFonts.prompt(color: Colors.black,fontSize: 18,),),
                   ],
                 ),
               ),
