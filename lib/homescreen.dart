@@ -233,7 +233,7 @@ class _homescreenState extends State<homescreen> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => beforetest(plant: 'coconut',)),
+                            MaterialPageRoute(builder: (context) => beforetest(plant: 'hibiscus',)),
                           );
                         },
                         child: Container(
@@ -253,8 +253,8 @@ class _homescreenState extends State<homescreen> {
 
                           child: Column(
                             children: [
-                              Text('Monstera',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
-                              Image.asset('images/monstera.png'),
+                              Text('Hibiscus',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
+                              Image.network('https://s3.tebi.io/florax/Images/hibiscus.png'),
 
                             ],
                           ),
@@ -263,98 +263,126 @@ class _homescreenState extends State<homescreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
-                            color: Color(0xFFEDEDED),
-                            borderRadius: BorderRadius.circular(50)),
-                        width: 150,
-                        height: 100,
-                        child: Column(
-                          children: [
-                            Text('Money Plant',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => beforetest(plant: 'mango',)),
+                          );},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFEDEDED),
+                              borderRadius: BorderRadius.circular(50)),
+                          width: 150,
+                          height: 100,
+                          child: Column(
+                            children: [
+                              Text('Mango Tree',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
 
-                            Image.asset('images/plant_money.png'),
-                          ],
+                              Image.network('https://s3.tebi.io/florax/Images/mango_tree.png'),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
+                      child: GestureDetector(
+                      onTap: (){
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => beforetest(plant: 'rose',)),
+                      );},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFEDEDED),
+                              borderRadius: BorderRadius.circular(50)),
+                          width: 150,
+                          height: 100,
+                          child: Column(
+                            children: [
+                              Text('Rose',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
+                              Image.network('https://s3.tebi.io/florax/Images/rose_img.png'),
                             ],
-                            color: Color(0xFFEDEDED),
-                            borderRadius: BorderRadius.circular(50)),
-                        width: 150,
-                        height: 100,
-                        child: Column(
-                          children: [
-                            Text('Kuchi Plant',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
-                            Image.asset('images/plant_4_new.png'),
-                          ],
+                          ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => beforetest(plant: 'tomato',)),
+                          );},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFEDEDED),
+                              borderRadius: BorderRadius.circular(50)),
+                          width: 150,
+                          height: 100,
+                          child: Column(
+                            children: [
+                              Text('Tomato',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
+                              Image.network('https://s3.tebi.io/florax/Images/display_tomato.png'),
                             ],
-                            color: Color(0xFFEDEDED),
-                            borderRadius: BorderRadius.circular(50)),
-                        width: 150,
-                        height: 100,
-                        child: Column(
-                          children: [
-                            Text('Snake plant',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
-                            Image.asset('images/plant_5.png'),
-                          ],
+                          ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => beforetest(plant: 'banana',)),
+                          );},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFEDEDED),
+                              borderRadius: BorderRadius.circular(50)),
+                          width: 150,
+                          height: 100,
+                          child: Column(
+                            children: [
+                              Text('Banana',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
+                              Image.network('https://s3.tebi.io/florax/Images/banana_musa_acuminata.png',fit: BoxFit.cover,),
                             ],
-                            color: Color(0xFFEDEDED),
-                            borderRadius: BorderRadius.circular(50)),
-                        width: 150,
-                        height: 100,
-                        child: Column(
-                          children: [
-                            Text('Grass',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 18,),),
-                            Image.asset('images/bg_removed.png',fit: BoxFit.cover,),
-                          ],
+                          ),
                         ),
                       ),
                     ),
