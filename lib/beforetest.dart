@@ -6,6 +6,9 @@ import 'package:pp_template/splash.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'package:pp_template/backendapi.dart';
+import 'dart:convert';
 
 class beforetest extends StatefulWidget {
   final String plant;
@@ -16,15 +19,42 @@ class beforetest extends StatefulWidget {
 }
 
 class _beforetestState extends State<beforetest> {
+  Map<String, dynamic> resp = {};
   @override
   void initState(){
     super.initState();
-    Future.delayed(Duration(seconds: 3)).then((value){
-      Navigator.of(context).pushReplacement(CupertinoPageRoute(builder:(ctx) => PlantDetails(plant: widget.plant,)));
+    // getPlantInfo();
+    // Navigator.push(
+    //         context,
+    //         MaterialPageRoute(builder: (context) => PlantDetails(resp: resp,)),
+    //       );
+    getPlantInfo().then((result) {
+        Future.delayed(Duration(seconds: 3), ()
+      {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PlantDetails(resp: resp)),
+        );
+      });
     });
+        }
 
-
+  Future getPlantInfo() async{
+    String apiResponse = '';
+    http.Response response;
+    response= await http.put(Uri.parse(apiUrl+"/plant"),
+      headers:  {'Content-Type': 'application/json'},
+      body: json.encode({'name' :widget.plant}),);
+    if(response.statusCode == 200)
+    {
+      setState(() {
+        apiResponse = response.body;
+        resp = json.decode(apiResponse);
+      });
+    }
   }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body:Container(

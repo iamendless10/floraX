@@ -4,41 +4,17 @@ import 'package:lottie/lottie.dart';
 import 'package:http/http.dart' as http;
 import 'package:pp_template/backendapi.dart';
 import 'dart:convert';
-
 import 'package:pp_template/information.dart';
 
-
 class PlantDetails extends StatefulWidget {
-  final String plant;
-  const PlantDetails({Key? key, required this.plant}) : super(key: key);
+  final Map<String, dynamic> resp;
+  const PlantDetails({Key? key, required this.resp}) : super(key: key);
 
   @override
   _PlantDetailsState createState() => _PlantDetailsState();
 }
 
 class _PlantDetailsState extends State<PlantDetails> {
-  Map<String, dynamic> resp = {};
-  @override
-  void initState()
-  {
-    getPlantInfo();
-    super.initState();
-  }
-
-  Future getPlantInfo() async{
-    String apiResponse = '';
-    http.Response response;
-    response= await http.put(Uri.parse(apiUrl+"/plant"),
-      headers:  {'Content-Type': 'application/json'},
-      body: json.encode({'name' :widget.plant}),);
-    if(response.statusCode == 200)
-      {
-        setState(() {
-          apiResponse = response.body;
-          resp = json.decode(apiResponse);
-        });
-      }
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +38,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        resp['display_name'] ?? 'Unknown',
+                        widget.resp['display_name'] ?? 'Unknown',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.josefinSans(
                           color: Color(0xFF000000),
@@ -80,7 +56,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                   color: Color(0xFFDEEBBD),
                   child: Column(
                     children: [
-                      Text(resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 22,),),
+                      Text(widget.resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 22,),),
                     ],
                   ),
                 ),
@@ -162,7 +138,7 @@ class _PlantDetailsState extends State<PlantDetails> {
 
                                       child: Center(
                                           child: Text(
-                                        resp['water_per_day'] ?? 'Unknown',
+                                        widget.resp['water_per_day'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -230,7 +206,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        resp['sunlight_per_day'] ?? 'Unknown',
+                                        widget.resp['sunlight_per_day'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -297,7 +273,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        resp['temp'] ?? 'Unknown',
+                                        widget.resp['temp'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -363,7 +339,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        resp['humidity'] ?? 'Unknown',
+                                        widget.resp['humidity'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -429,7 +405,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                                       color: Color(0xFFF7FBEC)),
                                   child: Center(
                                       child: Text(
-                                        resp['fertilizer'] ?? "Unknown",
+                                        widget.resp['fertilizer'] ?? "Unknown",
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -551,7 +527,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(resp['display_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Color(0xFF3C3F41),fontSize: 38,),),
+                            Text(widget.resp['display_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Color(0xFF3C3F41),fontSize: 38,),),
                           ],
                         ),
                       ),
@@ -563,7 +539,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                            Text(widget.resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
                           ],
                         ),
                       ),
@@ -575,7 +551,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(resp['description'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
+                            Text(widget.resp['description'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFF3C3F41),fontSize: 18,),),
                           ],
                         ),
                       ),
@@ -600,7 +576,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                           children: <Widget>[
                             Icon(Icons.thermostat,color: Colors.black,),
 
-                            Text('    Minimum ' + (resp['temp'] ?? ''), textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF3C3F41),fontSize: 13,),),
+                            Text('    Minimum ' + (widget.resp['temp'] ?? ''), textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF3C3F41),fontSize: 13,),),
                           ],
                         ),
                       ),
@@ -654,7 +630,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => information(plant: widget.plant,)),
+                            MaterialPageRoute(builder: (context) => information(resp: widget.resp,)),
                           );
                         },
                         child: Container(
@@ -689,7 +665,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   image: DecorationImage(
-                    image: NetworkImage(resp['image']),
+                    image: NetworkImage(widget.resp['image']),
                     fit: BoxFit.fill,
                   ),
                 ),

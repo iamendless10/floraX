@@ -181,7 +181,6 @@ class DisplayPictureScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => mlpage(path: imagePath,)),
                         );
-
                     },
                   ),
                 ],

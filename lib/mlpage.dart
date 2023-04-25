@@ -25,10 +25,10 @@ class _mlpageState extends State<mlpage> {
       setState(() {
         _ml_keyword = result;
       });
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => PlantDetails(plant: _ml_keyword)),
-      );
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => PlantDetails(plant: _ml_keyword)),
+      // );
     });
   }
   Widget build(BuildContext context) {

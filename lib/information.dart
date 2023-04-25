@@ -7,34 +7,13 @@ import 'dart:convert';
 
 
 class information extends StatefulWidget {
-  final String plant;
-  const information({Key? key, required this.plant}) : super(key: key);
+  final Map<String, dynamic> resp;
+  const information({Key? key, required this.resp}) : super(key: key);
   @override
   _informationState createState() => _informationState();
 }
-class _informationState extends State<information> {
-  Map<String, dynamic> resp = {};
-  @override
-  void initState()
-  {
-    getPlantInfo();
-    super.initState();
-  }
-  Future getPlantInfo() async{
-    String apiResponse = '';
-    http.Response response;
-    response= await http.put(Uri.parse(apiUrl+"/plant"),
-      headers:  {'Content-Type': 'application/json'},
-      body: json.encode({'name' :widget.plant}),);
-    if(response.statusCode == 200)
-    {
-      setState(() {
-        apiResponse = response.body;
-        resp = json.decode(apiResponse);
-      });
-    }
-  }
 
+class _informationState extends State<information> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +76,7 @@ class _informationState extends State<information> {
                       decoration:
                       BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(resp['display_img']),
+                          image: NetworkImage(widget.resp['display_img']),
                           fit: BoxFit.fill,
                         ),
                         borderRadius: BorderRadius.circular(50),
@@ -116,8 +95,8 @@ class _informationState extends State<information> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 28,),),
-                          Text(resp['display_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF5C5C5C),fontSize: 20,),),
+                          Text(widget.resp['botanical_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 28,),),
+                          Text(widget.resp['display_name'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF5C5C5C),fontSize: 20,),),
                         ],
                       ),
                     ),
@@ -134,7 +113,7 @@ class _informationState extends State<information> {
                       child: Column(
                         children: <Widget>[
                           Text('Pests',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text(resp['pests'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(widget.resp['pests'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                           Container(
                             height: 50,
                             width: 10,
@@ -169,7 +148,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['pest_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['pest_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -179,7 +158,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['pest_1_img']),
+                                              image: NetworkImage(widget.resp['pest_1_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -209,7 +188,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['pest_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['pest_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -219,7 +198,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['pest_2_img']),
+                                              image: NetworkImage(widget.resp['pest_2_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -249,7 +228,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['pest_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['pest_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -259,7 +238,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['pest_3_img']),
+                                              image: NetworkImage(widget.resp['pest_3_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -289,7 +268,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['pest_4'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['pest_4'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -299,7 +278,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['pest_4_img']),
+                                              image: NetworkImage(widget.resp['pest_4_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -323,7 +302,7 @@ class _informationState extends State<information> {
                       child: Column(
                         children: <Widget>[
                           Text('Growing Condition',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text(resp['growing_conditions'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(widget.resp['growing_conditions'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                         ],
                       ),
                     ),
@@ -335,7 +314,7 @@ class _informationState extends State<information> {
                       child: Column(
                         children: <Widget>[
                           Text('Health benefits',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text(resp['health_benefits'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(widget.resp['health_benefits'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                         ],
                       ),
                     ),
@@ -347,7 +326,7 @@ class _informationState extends State<information> {
                       child: Column(
                         children: <Widget>[
                           Text('Culinary Uses',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text(resp['culinary_uses'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(widget.resp['culinary_uses'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                           Container(
                             height: 50,
                             width: 10,
@@ -382,7 +361,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['culinary_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['culinary_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -392,7 +371,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['culinary_1_img']),
+                                              image: NetworkImage(widget.resp['culinary_1_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -422,7 +401,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['culinary_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['culinary_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -432,7 +411,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['culinary_2_img']),
+                                              image: NetworkImage(widget.resp['culinary_2_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -462,7 +441,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['culinary_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['culinary_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -472,7 +451,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['culinary_3_img']),
+                                              image: NetworkImage(widget.resp['culinary_3_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -496,7 +475,7 @@ class _informationState extends State<information> {
                       child: Column(
                         children: <Widget>[
                           Text('Common diseases',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
-                          Text(resp['common_diseases'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
+                          Text(widget.resp['common_diseases'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 17,),),
                           Container(
                             height: 50,
                             width: 10,
@@ -531,7 +510,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['disease_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['disease_1'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -541,7 +520,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['disease_1_img']),
+                                              image: NetworkImage(widget.resp['disease_1_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -571,7 +550,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['disease_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['disease_2'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -581,7 +560,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['disease_2_img']),
+                                              image: NetworkImage(widget.resp['disease_2_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -611,7 +590,7 @@ class _informationState extends State<information> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Text(resp['disease_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
+                                              Text(widget.resp['disease_3'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFF284927),fontSize: 20,),),
                                             ],
                                           ),
                                         ),
@@ -621,7 +600,7 @@ class _informationState extends State<information> {
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
                                             image: DecorationImage(
-                                              image: NetworkImage(resp['disease_3_img']),
+                                              image: NetworkImage(widget.resp['disease_3_img']),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
