@@ -39,7 +39,7 @@ class _sentState extends State<sent> {
               height: 500,
               width: double.infinity,
               color: Colors.transparent,
-              child: Lottie.network('https://assets9.lottiefiles.com/private_files/lf30_nsqfzxxx.json'),
+              child: Lottie.asset('lottie/sent.json'),
             ),
             Container(
               height: 200,

@@ -8,7 +8,6 @@ import 'package:pp_template/mlpage.dart';
 import 'package:pp_template/signinsplash.dart';
 import 'package:flutter/material.dart';
 import 'package:pp_template/backendapi.dart';
-
 import 'disease.dart';
 import 'diseasesplash.dart';
 
@@ -167,7 +166,7 @@ class DisplayPictureScreen extends StatelessWidget {
                     height: 60,
                     width: 80,
                     color: Colors.transparent,
-                    child: Lottie.network('https://assets1.lottiefiles.com/packages/lf20_i1ea2anf.json'),
+                    child: Lottie.asset('lottie/detect_leaf.json'),
                   ),
                   TextButton(
                     child: Text(
@@ -218,7 +217,7 @@ class DisplayPictureScreen extends StatelessWidget {
                     height: 60,
                     width: 80,
                     color: Colors.transparent,
-                    child: Lottie.network('https://assets3.lottiefiles.com/private_files/lf30_mvurfbs7.json'),
+                    child: Lottie.asset('lottie/detect_disease.json'),
                   ),
                   TextButton(
                     child: Text(
