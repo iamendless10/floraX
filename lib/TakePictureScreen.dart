@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:camera/camera.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pp_template/disease2.dart';
 import 'package:pp_template/mlpage.dart';
 import 'package:pp_template/signinsplash.dart';
 import 'package:flutter/material.dart';
@@ -230,7 +231,7 @@ class DisplayPictureScreen extends StatelessWidget {
                       // String _ml_keyword = await detectPlant(imagePath);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => disease()),
+                        MaterialPageRoute(builder: (context) => disease2()),
 
                       );
 

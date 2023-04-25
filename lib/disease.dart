@@ -8,19 +8,19 @@ class disease extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF017765),
-        automaticallyImplyLeading: false,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios_rounded),color: Colors.white, onPressed: (){Navigator.pop(context);},),
-        title: Text('                  Disease',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
-        actions: [
-          Row(
-            children: [
-
-            ],
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xFF017765),
+      //   automaticallyImplyLeading: false,
+      //   leading: IconButton(icon: Icon(Icons.arrow_back_ios_rounded),color: Colors.white, onPressed: (){Navigator.pop(context);},),
+      //   title: Text('                  Disease',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
+      //   actions: [
+      //     Row(
+      //       children: [
+      //
+      //       ],
+      //     ),
+      //   ],
+      // ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
