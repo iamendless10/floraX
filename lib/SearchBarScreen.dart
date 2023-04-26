@@ -5,7 +5,7 @@ import 'package:pp_template/homescreen.dart';
 import 'package:pp_template/TakePictureScreen.dart';
 import 'package:camera/camera.dart';
 import 'package:pp_template/profilepage.dart';
-
+import 'beforetest.dart';
 
 
 class SearchBarScreen extends StatefulWidget {
@@ -20,65 +20,74 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
   final List<Map<String, dynamic>> _allUsers = [
     {
       "image":
-      "",
+      "https://s3.tebi.io/florax2/hibiscus_display.jpg",
       "id": 1,
       "name": "Hibiscus",
+      'page':'hibiscus',
       "des": "Hibiscus Rosasinensis",
     },
     {
       "id": 2,
       "name": "Banana",
+      'page':'banana',
       "des": "Musa Acuminata",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/_7d5074b7-1613-4d74-81b4-eb85ab127a55-removebg-preview.png",
     },
     {
       "id": 3,
       "name": "Neem",
+      'page':'neem',
       "des": "Azadirachta Indica",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/neem_display.jpg",
     },
     {
       "id": 4,
       "name": "Coconut",
+      'page':'coconut',
       "des": "Cocos Nucifera",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/coconut_display.jpg",
     },
     {
       "id": 5,
       "name": "Mango",
+      'page':'mango',
       "des": "Mangifera Indica",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/mango_display.jpg",
     },
     {
       "id": 6,
       "name": "Rose",
+      'page':'rose',
       "des": "Rosa Rubiginosa",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/rose_display.jpg",
     },
     {
       "id": 7,
       "name": "Palm Tree",
+      'page':'palm',
       "des": "Arecaceae",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/plam_tree.png",
     },
     {
       "id": 8,
       "name": "Tomato",
+      'page':'tomato',
       "des": "Solanum Lycopersicum",
       "image":
-      "",
+      "https://s3.tebi.io/florax2/tomato_details_img.png",
     },    {
       "id": 9,
       "name": "Banyan",
+      'page':'banyan',
       "des": "Ficus Benghalensis",
       "image":
-      "",
+      "https://s3.tebi.io/florax/Images/banyan_display.jpg",
     },
   ];
 
@@ -156,14 +165,6 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
               ),
               GButton(icon: Icons.search,
                 text: 'Search',
-                // onPressed: () {
-                // setState(() {
-                // });
-                // //   Navigator.push(
-                // //     context,
-                // //     MaterialPageRoute(builder: (context) => SearchBarScreen()),
-                // //   );
-                // // },
               ),
               GButton(icon: Icons.qr_code_scanner,
                 text: 'Scan',
@@ -242,6 +243,12 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
                     ),
                     title: Text(_foundUsers[index]['name']),
                     subtitle: Text('${_foundUsers[index]["des"]}'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => beforetest(plant: _foundUsers[index]['page'],)),
+                      );
+                    },
                   ),
                 ),
               )
