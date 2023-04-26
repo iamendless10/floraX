@@ -18,6 +18,65 @@ class _PlantDetailsState extends State<PlantDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFE5EADA),
+        automaticallyImplyLeading: false,
+        toolbarHeight: 80,
+        flexibleSpace: FlexibleSpaceBar(
+          background:Container(
+            height: 200,
+            width: 380,
+            color: Color(0xFFE5EADA),
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+               Container(
+                 child: Column(
+                   children: [
+                     SizedBox(height: 30,),
+                     IconButton(
+                        icon: Icon(Icons.thermostat,color: Colors.black,),
+                        onPressed: () {
+                        },
+                      ),
+                     Text("18%",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                   ],
+                 ),
+               ),
+                Container(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 30,),
+                      IconButton(
+                        icon: Icon(Icons.menu_outlined,color: Colors.black,),
+                        onPressed: () {
+                        },
+                      ),
+                      Text("18%",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 30,),
+                      IconButton(
+                        icon: Icon(Icons.notifications,color: Colors.black,),
+                        onPressed: () {
+                        },
+                      ),
+                      Text("18%",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -86,7 +145,17 @@ class _PlantDetailsState extends State<PlantDetails> {
                   ),
                 ),
 
-                SizedBox(height: 80,),
+                Container(
+                  height: 80,
+                  width: 380,
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Recomended',textAlign: TextAlign.center,style: GoogleFonts.catamaran(color: Colors.black,fontSize: 30,),),
+                    ],
+                  ),
+                ),
                 Container(
                   height: 220,
                   width: 380,
@@ -506,7 +575,17 @@ class _PlantDetailsState extends State<PlantDetails> {
                     ],
                   ),
                 ),
-                SizedBox(height: 80,),
+                Container(
+                  height: 80,
+                  width: 380,
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Your Land details',textAlign: TextAlign.center,style: GoogleFonts.catamaran(color: Colors.black,fontSize: 30,),),
+                    ],
+                  ),
+                ),
                 Container(
                   height: 220,
                   width: 380,

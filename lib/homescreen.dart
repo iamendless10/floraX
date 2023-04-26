@@ -10,6 +10,7 @@ import 'package:pp_template/bluetooth.dart';
 import 'package:pp_template/profilepage.dart';
 import 'package:pp_template/test.dart';
 import 'package:pp_template/TakePictureScreen.dart';
+import 'package:http/http.dart' as http2;
 
 class homescreen extends StatefulWidget {
   const homescreen({Key? key}) : super(key: key);
@@ -19,6 +20,14 @@ class homescreen extends StatefulWidget {
 
 class _homescreenState extends State<homescreen> {
   late Future<String> _futureUsername;
+  void motorFunction(String state) async
+  {
+    final response = await http2.get(Uri.parse('http://192.168.47.3:80/motor/'+state));
+    if(response.statusCode == 200)
+      {
+        print(response.body);
+      }
+  }
 
   @override
   void initState() {
@@ -190,19 +199,57 @@ class _homescreenState extends State<homescreen> {
                     ),
                     TextButton(
                       child: Text(
-                        'Connect to bluetooth mod.',
+                        'Motor ON',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.balsamiqSans(
                             color: Colors.white, fontSize: 19),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => bluetooth()),
-                        );
+                        motorFunction('on');
                       },
                     ),
                   ],
+                ),
+              ),
+              SizedBox(height: 20,),
+              GestureDetector(
+                onTap: (){
+
+                },
+                child: Container(
+                  height: 40,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                      color: Color(0xFFC9A9AA),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.broadcast_on_personal_rounded,
+                        color: Colors.white,
+                      ),
+                      TextButton(
+                        child: Text(
+                          'Motor OFF',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.balsamiqSans(
+                              color: Colors.white, fontSize: 19),
+                        ),
+                        onPressed: () {
+                          motorFunction('off');
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
              SizedBox(height: 10,),
