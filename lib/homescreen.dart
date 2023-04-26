@@ -233,7 +233,7 @@ class _homescreenState extends State<homescreen> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => beforetest(plant: 'hibiscus',)),
+                            MaterialPageRoute(builder: (context) => beforetest(plant: 'rice',)),
                           );
                         },
                         child: Container(
