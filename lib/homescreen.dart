@@ -174,7 +174,7 @@ class _homescreenState extends State<homescreen> {
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 25,
               ),
               Container(
                 height: 40,
@@ -194,64 +194,25 @@ class _homescreenState extends State<homescreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.broadcast_on_personal_rounded,
+                      Icons.water_drop_rounded,
                       color: Colors.white,
+                      size: 35,
                     ),
                     TextButton(
                       child: Text(
-                        'Motor ON',
+                        'Water your plants',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.balsamiqSans(
-                            color: Colors.white, fontSize: 19),
+                            color: Colors.white, fontSize: 22),
                       ),
                       onPressed: () {
-                        motorFunction('on');
+                        openDialog();
                       },
                     ),
                   ],
                 ),
               ),
               SizedBox(height: 20,),
-              GestureDetector(
-                onTap: (){
-
-                },
-                child: Container(
-                  height: 40,
-                  width: 300,
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                      color: Color(0xFFC9A9AA),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.broadcast_on_personal_rounded,
-                        color: Colors.white,
-                      ),
-                      TextButton(
-                        child: Text(
-                          'Motor OFF',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.balsamiqSans(
-                              color: Colors.white, fontSize: 19),
-                        ),
-                        onPressed: () {
-                          motorFunction('off');
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ),
              SizedBox(height: 10,),
              Container(
                height: 50,
@@ -618,4 +579,22 @@ class _homescreenState extends State<homescreen> {
       ),
     );
   }
+  Future openDialog() => showDialog(
+  context: context,
+  builder: (context) => AlertDialog(
+  title:  Text('Water your plants',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 20,),),
+  content: TextFormField(
+  decoration: InputDecoration(
+  border: OutlineInputBorder(),
+  labelText: 'Enter in minutes',
+  ),
+  ),
+  actions: [
+  TextButton(
+  child:  Text('Start',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 20,),),
+  onPressed: (){},
+  )
+  ],
+  ),
+  );
 }
