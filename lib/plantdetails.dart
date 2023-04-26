@@ -85,6 +85,8 @@ class _PlantDetailsState extends State<PlantDetails> {
                     ),
                   ),
                 ),
+
+                SizedBox(height: 80,),
                 Container(
                   height: 220,
                   width: 380,
@@ -138,7 +140,75 @@ class _PlantDetailsState extends State<PlantDetails> {
 
                                       child: Center(
                                           child: Text(
-                                        widget.resp['water_per_day'] ?? 'Unknown',
+                                            widget.resp['water_per_day'] ?? 'Unknown',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.cabin(
+                                              color: Color(0xFF5C5C5C),
+                                              fontSize: 40,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF7FBEC),
+                                ),
+                                child: Container(
+                                  height: 44,
+                                  width: 370,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                                      color: Color(0xFF5D8233)),
+                                  child: Text('Water / Day',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFF7FBEC),
+                              borderRadius: BorderRadius.circular(30)),
+                          width: 180,
+                          height: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.asset('lottie/plant_sun.json'),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xff5D8233),
+                                ),
+                                child: Container(
+                                  height: 80,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
+                                      color: Color(0xFFF7FBEC)),
+                                  child: Center(
+                                      child: Text(
+                                        widget.resp['sunlight_per_day'] ?? 'Unknown',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.cabin(
                                           color: Color(0xFF5C5C5C),
@@ -146,6 +216,358 @@ class _PlantDetailsState extends State<PlantDetails> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       )),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF7FBEC),
+                                ),
+                                child: Container(
+                                  height: 44,
+                                  width: 370,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30)),
+                                      color: Color(0xFF5D8233)),
+                                  child: Text('Sunlight / Day',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFF7FBEC),
+                              borderRadius: BorderRadius.circular(30)),
+                          width: 180,
+                          height: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+
+                              Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.asset('lottie/plant_temp.json'),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xff5D8233),
+                                ),
+                                child: Container(
+                                  height: 80,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
+                                      color: Color(0xFFF7FBEC)),
+                                  child: Center(
+                                      child: Text(
+                                        widget.resp['temp'] ?? 'Unknown',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cabin(
+                                          color: Color(0xFF5C5C5C),
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF7FBEC),
+                                ),
+                                child: Container(
+                                  height: 44,
+                                  width: 370,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                                      color: Color(0xFF5D8233)),
+                                  child: Text('Tempr.',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFF7FBEC),
+                              borderRadius: BorderRadius.circular(30)),
+                          width: 180,
+                          height: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.asset('lottie/plant_humidity.json'),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xff5D8233),
+                                ),
+                                child: Container(
+                                  height: 80,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
+                                      color: Color(0xFFF7FBEC)),
+                                  child: Center(
+                                      child: Text(
+                                        widget.resp['humidity'] ?? 'Unknown',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cabin(
+                                          color: Color(0xFF5C5C5C),
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF7FBEC),
+                                ),
+                                child: Container(
+                                  height: 44,
+                                  width: 370,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30)),
+                                      color: Color(0xFF5D8233)),
+                                  child: Text('Humidity',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFF7FBEC),
+                              borderRadius: BorderRadius.circular(30)),
+                          width: 180,
+                          height: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.asset('lottie/plant_fertilizer.json'),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xff5D8233),
+                                ),
+                                child: Container(
+                                  height: 80,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
+                                      color: Color(0xFFF7FBEC)),
+                                  child: Center(
+                                      child: Text(
+                                        widget.resp['fertilizer'] ?? "Unknown",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cabin(
+                                          color: Color(0xFF5C5C5C),
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF7FBEC),
+                                ),
+                                child: Container(
+                                  height: 44,
+                                  width: 370,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+                                      color: Color(0xFF5D8233)),
+                                  child: Text('Fertilizer / HA',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFF7FBEC),
+                              borderRadius: BorderRadius.circular(30)),
+                          width: 180,
+                          height: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 80,
+                                width: 180,
+
+                                color: Color(0xFFF7FBEC),
+                                child: Lottie.asset('lottie/plant_next_watering.json'),
+                              ),
+
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xff5D8233),
+                                ),
+                                child: Container(
+                                  height: 80,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
+                                      color: Color(0xFFF7FBEC)),
+                                  child: Center(
+                                      child: Text(
+                                        '2Days',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cabin(
+                                          color: Color(0xFF5C5C5C),
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFF7FBEC),
+                                ),
+                                child: Container(
+                                  height: 44,
+                                  width: 370,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30)),
+                                      color: Color(0xFF5D8233)),
+                                  child: Text('Next Watering',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Color(0xFFFFFFFF),fontSize: 22,),),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      //
+
+                    ],
+                  ),
+                ),
+                SizedBox(height: 80,),
+                Container(
+                  height: 220,
+                  width: 380,
+                  color: Colors.white,
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                              color: Color(0xFFF7FBEC),
+                              borderRadius: BorderRadius.circular(30)),
+                          width: 180,
+                          height: 120,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xff5D8233),
+                                ),
+
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 80,
+                                      width: 180,
+
+                                      color: Color(0xFFF7FBEC),
+                                      child: Lottie.asset('lottie/plant_water.json'),
+                                    ),
+                                    Container(
+                                      height: 80,
+                                      width: 180,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
+                                          color: Color(0xFFF7FBEC)),
+
+                                      child: Center(
+                                          child: Text(
+                                            widget.resp['water_per_day'] ?? 'Unknown',
+                                            textAlign: TextAlign.center,
+                                            style: GoogleFonts.cabin(
+                                              color: Color(0xFF5C5C5C),
+                                              fontSize: 40,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          )),
                                     ),
                                   ],
                                 ),
@@ -614,9 +1036,9 @@ class _PlantDetailsState extends State<PlantDetails> {
                         width: 180,
                         decoration: BoxDecoration(
                             color: Color(0xff5D9C59),
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                          )
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                            )
                         ),
                         child: Row(
                           children: <Widget>[
