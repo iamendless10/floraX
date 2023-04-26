@@ -81,13 +81,38 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
       "des": "Solanum Lycopersicum",
       "image":
       "https://s3.tebi.io/florax2/tomato_details_img.png",
-    },    {
+    },
+    {
       "id": 9,
       "name": "Banyan",
       'page':'banyan',
       "des": "Ficus Benghalensis",
       "image":
       "https://s3.tebi.io/florax/Images/banyan_display.jpg",
+    },
+    {
+      "id": 10,
+      "name": "Lemon",
+      'page':'lemon',
+      "des": "Citrus Limon",
+      "image":
+      "https://s3.tebi.io/florax/Images/lemon_display.jpg",
+    },
+    {
+      "id": 10,
+      "name": "Orange",
+      'page':'orange',
+      "des": "Citrus Sinensis",
+      "image":
+      "https://s3.tebi.io/florax4/orange_display.jpg",
+    },
+    {
+      "id": 10,
+      "name": "Rice",
+      'page':'rice',
+      "des": "Oryza Sativa",
+      "image":
+      "https://s3.tebi.io/florax/Images/rice_display.jpg",
     },
   ];
 
