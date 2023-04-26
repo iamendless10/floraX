@@ -114,6 +114,15 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
       "image":
       "https://s3.tebi.io/florax/Images/rice_display.jpg",
     },
+    {
+      "id": 11,
+      "name": "Turmeric",
+      'page':'turmeric',
+      "des": "Curcuma Longa",
+      "image":
+      "https://s3.tebi.io/florax/Images/turmeric_display.jpg",
+    },
+
   ];
 
   // This list holds the data for the list view
