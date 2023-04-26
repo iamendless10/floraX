@@ -3,8 +3,8 @@ import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class disease2 extends StatefulWidget {
-  final String disease;
-  const disease2({Key? key, required this.disease}) : super(key: key);
+  final Map<String, dynamic> resp;
+  const disease2({Key? key, required this.resp}) : super(key: key);
   @override
   _disease2State createState() => _disease2State();
 }
@@ -16,7 +16,7 @@ class _disease2State extends State<disease2> {
         backgroundColor: Color(0xFF44694B),
         automaticallyImplyLeading: false,
         leading: IconButton(icon: Icon(Icons.arrow_back_ios_rounded),color: Colors.white, onPressed: (){Navigator.pop(context);},),
-        title: Text('           ' + widget.disease ?? "Disease",textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
+        title: Text('           ' + widget.resp['display_name'] ?? "Disease",textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
         actions: [
           Row(
             children: [
@@ -50,7 +50,7 @@ class _disease2State extends State<disease2> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           image: DecorationImage(
-                            image: AssetImage('images/dis.jpg'),
+                            image: NetworkImage(widget.resp['image']),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -89,7 +89,7 @@ class _disease2State extends State<disease2> {
                                 height: 230,
                                 width: 280,
                                 color: Colors.transparent,
-                                child: Text("This fungal disease of roses is usually a problem in California only in foggy or humid coastal areas. It can occur anywhere leaves commonly remain wet, such as where roses are sprinkler irrigated during the evening or night.",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 18,),),
+                                child: Text(widget.resp['description'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 18,),),
                               ),
                               Container(
                                 height: 150,
@@ -124,7 +124,7 @@ class _disease2State extends State<disease2> {
                                 height: 230,
                                 width: 280,
                                 color: Colors.transparent,
-                                child: Text("This fungal disease of roses is usually a problem in California only in foggy or humid coastal areas. It can occur anywhere leaves commonly remain wet, such as where roses are sprinkler irrigated during the evening or night.",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 18,),),
+                                child: Text(widget.resp['symptoms'] ?? "Unknown",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 18,),),
                               ),
                               Container(
                                 height: 150,
@@ -153,13 +153,13 @@ class _disease2State extends State<disease2> {
                                 height: 50,
                                 width: 250,
                                 color: Colors.transparent,
-                                child: Text(" Solution",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 25,),),
+                                child: Text(" Cure",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 25,),),
                               ),
                               Container(
                                 height: 230,
                                 width: 280,
                                 color: Colors.transparent,
-                                child: Text("This fungal disease of roses is usually a problem in California only in foggy or humid coastal areas. It can occur anywhere leaves commonly remain wet, such as where roses are sprinkler irrigated during the evening or night.",textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 18,),),
+                                child: Text(widget.resp['cure'],textAlign: TextAlign.center,style: GoogleFonts.kanit(color: Color(0xFFF9F9F9),fontSize: 18,),),
                               ),
                               Container(
                                 height: 150,
