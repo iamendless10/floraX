@@ -7,7 +7,9 @@ import 'package:pp_template/splash.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 import 'package:pp_template/backendapi.dart';
+import 'dart:convert';
 
 class diseasesplash extends StatefulWidget {
   final String path;
@@ -18,19 +20,40 @@ class diseasesplash extends StatefulWidget {
 }
 
 class _diseasesplashState extends State<diseasesplash> {
+  String _disease = '';
+  Map<String, dynamic> resp = {};
+
   @override
   void initState() {
     super.initState();
-    String _disease = '';
     detectDisease(widget.path).then((result) {
       setState(() {
         _disease = result;
       });
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => disease2(disease: _disease,)),
-      );
+      getDiseaseInfo().then((result) {
+        Future.delayed(Duration(seconds: 3), ()
+        {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => disease2(resp: resp)),
+          );
+        });
+      });
     });
+  }
+  Future getDiseaseInfo() async{
+    String apiResponse = '';
+    http.Response response;
+    response= await http.put(Uri.parse(apiUrl+"/disease"),
+      headers:  {'Content-Type': 'application/json'},
+      body: json.encode({'name' : _disease }),);
+    if(response.statusCode == 200)
+    {
+      setState(() {
+        apiResponse = response.body;
+        resp = json.decode(apiResponse);
+      });
+    }
   }
   Widget build(BuildContext context) {
     return Scaffold(
