@@ -50,7 +50,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                     children: [
                       SizedBox(height: 30,),
                       IconButton(
-                        icon: Icon(Icons.menu_outlined,color: Colors.black,),
+                        icon: Icon(Icons.water_drop_rounded,color: Colors.black,),
                         onPressed: () {
                         },
                       ),
@@ -63,7 +63,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                     children: [
                       SizedBox(height: 30,),
                       IconButton(
-                        icon: Icon(Icons.notifications,color: Colors.black,),
+                        icon: Icon(Icons.cloud_rounded,color: Colors.black,),
                         onPressed: () {
                         },
                       ),
