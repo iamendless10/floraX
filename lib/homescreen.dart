@@ -588,30 +588,27 @@ class _homescreenState extends State<homescreen> {
   builder: (context) => AlertDialog(
   title:  Text('Water your plants',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 20,),),
   content: TextFormField(
+    controller: _countController,
   decoration: InputDecoration(
   border: OutlineInputBorder(),
-  labelText: 'Enter in minutes',
+  labelText: 'Enter in seconds',
     errorText: _countinValid ? 'Enter Minutes int digits' : null,
   ),
   ),
   actions: [
   TextButton(
   child:  Text('Start',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 20,),),
-  onPressed: (){
-    if (!RegExp(r'^\d*\.?\d+$').hasMatch(_countController.text.trim()))
-    {
-      setState(() {
-        _countinValid = true;
-      });
+  onPressed: () async {
+
+    int? _acre = int.tryParse(_countController.text.trim());
+    if (_acre != null) {
+
+      motorTiming(_acre*1000);
     }
     else
-    {
-      setState(() {
-        _countinValid = false;
-      });
-    }
-    double? _acre = double.tryParse(_countController.text.trim());
-
+      {
+        int _b=0;
+      }
   },
   )
   ],

@@ -25,6 +25,17 @@ Future <bool> loginUser(String email, String password) async{
   }
 }
 
+void motorTiming(int time) async{
+  final response = await http.post(
+    Uri.parse(nodeUrl+'/motor/on'),
+    headers: <String, String>{
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: <String, String>{
+      'delay': '$time',
+    },
+  );
+}
 Future <bool> registerUser(String email, String password, String username) async{
   var response = await http.put(Uri.parse(apiUrl+'/user/register'),
       body: {'email': email, 'password': password, 'username':username});
