@@ -15,6 +15,23 @@ class PlantDetails extends StatefulWidget {
 }
 
 class _PlantDetailsState extends State<PlantDetails> {
+  Map<String, dynamic> resp_weather ={};
+  @override
+  void initState() {
+    getWeatherInfo();
+    super.initState();
+  }
+
+  void getWeatherInfo () async
+  {
+    final response = await http.get(Uri.parse(nodeUrl+'/data'));
+    if(response.statusCode == 200)
+      {
+        setState(() {
+          resp_weather = json.decode(response.body);
+        });
+      }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +58,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                     Text("18%",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                     Text(resp_weather['temp'] ?? "unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                    ],
                  ),
                ),
@@ -54,7 +71,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                      Text("18%",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                      Text(resp_weather['humidity'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                     ],
                   ),
                 ),
@@ -67,7 +84,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                      Text("18%",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                      Text(resp_weather['weather'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                     ],
                   ),
                 ),

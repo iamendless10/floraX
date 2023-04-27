@@ -20,9 +20,12 @@ class homescreen extends StatefulWidget {
 
 class _homescreenState extends State<homescreen> {
   late Future<String> _futureUsername;
+  final TextEditingController _countController = TextEditingController();
+  bool _countinValid = false;
+
   void motorFunction(String state) async
   {
-    final response = await http2.get(Uri.parse('http://192.168.47.3:80/motor/'+state));
+    final response = await http2.get(Uri.parse(nodeUrl+'/motor/'+state));
     if(response.statusCode == 200)
       {
         print(response.body);
@@ -176,6 +179,7 @@ class _homescreenState extends State<homescreen> {
               SizedBox(
                 height: 25,
               ),
+
               Container(
                 height: 40,
                 width: 300,
@@ -587,12 +591,28 @@ class _homescreenState extends State<homescreen> {
   decoration: InputDecoration(
   border: OutlineInputBorder(),
   labelText: 'Enter in minutes',
+    errorText: _countinValid ? 'Enter Minutes int digits' : null,
   ),
   ),
   actions: [
   TextButton(
   child:  Text('Start',textAlign: TextAlign.center,style: GoogleFonts.oswald(color: Color(0xFF2B2B2B),fontSize: 20,),),
-  onPressed: (){},
+  onPressed: (){
+    if (!RegExp(r'^\d*\.?\d+$').hasMatch(_countController.text.trim()))
+    {
+      setState(() {
+        _countinValid = true;
+      });
+    }
+    else
+    {
+      setState(() {
+        _countinValid = false;
+      });
+    }
+    double? _acre = double.tryParse(_countController.text.trim());
+
+  },
   )
   ],
   ),

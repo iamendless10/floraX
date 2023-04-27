@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
 const String apiUrl = 'http://192.168.47.226:5000';
+const String nodeUrl = 'http://192.168.47.3:80';
 
 Future <bool> loginUser(String email, String password) async{
   var response = await http.put(Uri.parse(apiUrl+'/user/login'),
