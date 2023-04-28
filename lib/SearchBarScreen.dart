@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -157,6 +158,74 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   backgroundColor: Color(0xFFDCDDDF),
+      //   color: Color(0xFF355E3B),
+      //   items: [
+      //     GestureDetector(
+      //       onTap: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => homescreen()),
+      //         );
+      //       },
+      //       child: Icon(
+      //         Icons.home,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       onTap: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => SearchBarScreen()),
+      //         );
+      //       },
+      //       child: Icon(
+      //         Icons.search,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       onTap: () async{
+      //         // Ensure that plugin services are initialized so that `availableCameras()`
+      //         // can be called before `runApp()`
+      //         WidgetsFlutterBinding.ensureInitialized();
+      //
+      //         // Obtain a list of the available cameras on the device.
+      //         final cameras = await availableCameras();
+      //
+      //         // Select the back camera from the list of available cameras.
+      //         final camera = cameras.firstWhere(
+      //               (camera) => camera.lensDirection == CameraLensDirection.back,
+      //           orElse: () => throw StateError('No back camera available'),
+      //         );
+      //
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => TakePictureScreen(camera: camera)),
+      //         );
+      //       },
+      //
+      //       child: Icon(
+      //         Icons.qr_code_scanner_rounded,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       onTap: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => profile()),
+      //         );
+      //       },
+      //       child: Icon(
+      //         Icons.person,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //   ],
+      // ),
       bottomNavigationBar: Container(
         decoration:
         BoxDecoration(
@@ -168,7 +237,7 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
                 offset: Offset(0, 3),
               ),
             ],
-            color: Color(0xFFC3999A),
+            color: Color(0xFF355E3B),
 
             borderRadius: BorderRadius.circular(10)
         ),
@@ -177,10 +246,10 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 1),
           child: GNav(
-            backgroundColor: Color(0xFFC3999A),
+            backgroundColor: Color(0xFF355E3B),
             color: Colors.white,
             activeColor: Color(0xff393053),
-            tabBackgroundColor: Color(0xFFD0BBBA),
+            tabBackgroundColor: Color(0xFF50C878),
             selectedIndex: _selectedIndex,
             padding: EdgeInsets.all(10),
             tabs: [
@@ -236,9 +305,9 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Color(0xFFC3999A),
+        backgroundColor: Color(0xFF355E3B),
         centerTitle: true,
-        title:  Text('Discover new plants',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 20,),),
+        title:  Text('Discover new plants',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Colors.white,fontSize: 20,),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),

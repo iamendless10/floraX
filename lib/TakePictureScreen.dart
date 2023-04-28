@@ -77,7 +77,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xFFC3999A),
+          backgroundColor: Color(0xFF355E3B),
           title: const Text('Take picture')),
       // You must wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner until the
@@ -95,7 +95,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFC3999A),
+        backgroundColor: Color(0xFF355E3B),
         // Provide an onPressed callback.
         onPressed: () async {
           // Take the Picture in a try / catch block. If anything goes wrong,
@@ -141,7 +141,7 @@ class DisplayPictureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFC3999A),
+        backgroundColor: Color(0xFF355E3B),
           title: const Text('Plant Detection')),
       // The image is stored as a file on the device. Use the `Image.file
       body: GestureDetector(
@@ -154,7 +154,7 @@ class DisplayPictureScreen extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Color(0xFFC3999A),
+                color: Color(0xFF355E3B),
               ),
               height: 60,
               width: 270,

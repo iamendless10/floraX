@@ -47,6 +47,7 @@ dependencies:
   camera: ^0.10.4
   get: ^4.6.5
   line_awesome_icons: ^1.0.0
+  curved_navigation_bar: ^1.0.3
 
 
 dev_dependencies:

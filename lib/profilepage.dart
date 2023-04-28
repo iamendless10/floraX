@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -17,6 +18,74 @@ class profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   backgroundColor: Color(0xFFDCDDDF),
+      //   color: Color(0xFF355E3B),
+      //   items: [
+      //     GestureDetector(
+      //       onTap: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => homescreen()),
+      //         );
+      //       },
+      //       child: Icon(
+      //         Icons.home,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       onTap: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => SearchBarScreen()),
+      //         );
+      //       },
+      //       child: Icon(
+      //         Icons.search,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       onTap: () async{
+      //         // Ensure that plugin services are initialized so that `availableCameras()`
+      //         // can be called before `runApp()`
+      //         WidgetsFlutterBinding.ensureInitialized();
+      //
+      //         // Obtain a list of the available cameras on the device.
+      //         final cameras = await availableCameras();
+      //
+      //         // Select the back camera from the list of available cameras.
+      //         final camera = cameras.firstWhere(
+      //               (camera) => camera.lensDirection == CameraLensDirection.back,
+      //           orElse: () => throw StateError('No back camera available'),
+      //         );
+      //
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => TakePictureScreen(camera: camera)),
+      //         );
+      //       },
+      //
+      //       child: Icon(
+      //         Icons.qr_code_scanner_rounded,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       onTap: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => profile()),
+      //         );
+      //       },
+      //       child: Icon(
+      //         Icons.person,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //   ],
+      // ),
       bottomNavigationBar: Container(
         decoration:
         BoxDecoration(
@@ -28,7 +97,7 @@ class profile extends StatelessWidget {
                 offset: Offset(0, 3),
               ),
             ],
-            color: Color(0xFFC3999A),
+            color: Color(0xFF355E3B),
 
             borderRadius: BorderRadius.circular(10)
         ),
@@ -37,10 +106,10 @@ class profile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 1),
           child: GNav(
-            backgroundColor: Color(0xFFC3999A),
+            backgroundColor: Color(0xFF355E3B),
             color: Colors.white,
             activeColor: Color(0xff393053),
-            tabBackgroundColor: Color(0xFFD0BBBA),
+            tabBackgroundColor: Color(0xFF50C878),
             selectedIndex: 3,
             padding: EdgeInsets.all(10),
             tabs: [
@@ -100,12 +169,10 @@ class profile extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Color(0xFFC3999A),
+        backgroundColor: Color(0xFF355E3B),
         automaticallyImplyLeading: false,
-        leading: CircleAvatar(
-            backgroundColor: Color(0xFFD0C0C0),
-            child: IconButton(icon: Icon(Icons.arrow_back_ios_rounded),color: Color(0xFF2B2B2B), onPressed: (){Navigator.pop(context);},)),
-        title: Text('                  Profile',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Color(0xFF2B2B2B),fontSize: 18,),),
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios_rounded),color: Colors.white, onPressed: (){Navigator.pop(context);},),
+        title: Text('                  Profile',textAlign: TextAlign.center,style: GoogleFonts.rowdies(color: Colors.white,fontSize: 18,),),
         actions: [
           // Row(
           //   crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,14 +188,11 @@ class profile extends StatelessWidget {
           // ),
           Row(
             children: [
-              CircleAvatar(
-                backgroundColor: Color(0xFFD0C0C0),
-                child: IconButton(
-                  icon: Icon(Icons.thumb_up_off_alt_sharp,color: Color(0xFF2B2B2B),),
-                  onPressed: () {
-                    // Do something when the settings icon is pressed
-                  },
-                ),
+              IconButton(
+                icon: Icon(Icons.thumb_up_off_alt_sharp,color: Colors.white,),
+                onPressed: () {
+                  // Do something when the settings icon is pressed
+                },
               ),
             ],
           ),
@@ -184,7 +248,7 @@ class profile extends StatelessWidget {
                       width: 320,
                       decoration:
                       BoxDecoration(
-                        color: Color(0xFFC3A8A1),
+                        color: Color(0xFF009E60),
                         borderRadius: BorderRadius.circular(30),),
                       child: GestureDetector(
                         onTap: (){
@@ -201,7 +265,7 @@ class profile extends StatelessWidget {
                               color: Colors.transparent,
                               child: Icon(
                                 Icons.call,
-                                color: Colors.black,
+                                color: Colors.white,
                                 size: 30,
                               ),
                             ),
@@ -213,7 +277,7 @@ class profile extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Contact Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                  Text('Contact Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Colors.white,fontSize: 20),),
                                 ],
                               ),
                             ),
@@ -227,7 +291,7 @@ class profile extends StatelessWidget {
                                 children: [
                                    Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     size: 30,
                                   ),
                                 ],
@@ -245,7 +309,7 @@ class profile extends StatelessWidget {
                       width: 320,
                       decoration:
                       BoxDecoration(
-                        color: Color(0xFFC3A8A1),
+                        color: Color(0xFF009E60),
                         borderRadius: BorderRadius.circular(30),),
                       child: GestureDetector(
                         onTap: (){
@@ -262,7 +326,7 @@ class profile extends StatelessWidget {
                               color: Colors.transparent,
                               child: Icon(
                                 Icons.person,
-                                color: Colors.black,
+                                color: Colors.white,
                                 size: 30,
                               ),
                             ),
@@ -274,7 +338,7 @@ class profile extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('About Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                  Text('About Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Colors.white,fontSize: 20),),
                                 ],
                               ),
                             ),
@@ -288,7 +352,7 @@ class profile extends StatelessWidget {
                                 children: [
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     size: 30,
                                   ),
                                 ],
@@ -306,7 +370,7 @@ class profile extends StatelessWidget {
                       width: 320,
                       decoration:
                       BoxDecoration(
-                        color: Color(0xFFC3A8A1),
+                        color: Color(0xFF009E60),
                         borderRadius: BorderRadius.circular(30),),
                       child: GestureDetector(
                         onTap: ()async{
@@ -336,7 +400,7 @@ class profile extends StatelessWidget {
                               color: Colors.transparent,
                               child: Icon(
                                 Icons.qr_code_scanner_rounded,
-                                color: Colors.black,
+                                color: Colors.white,
                                 size: 30,
                               ),
                             ),
@@ -348,7 +412,7 @@ class profile extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Plant Detecter',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                  Text('Plant Detecter',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Colors.white,fontSize: 20),),
                                 ],
                               ),
                             ),
@@ -363,7 +427,7 @@ class profile extends StatelessWidget {
 
                                   Icon(
                                     Icons.arrow_forward_ios,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     size: 30,
                                   ),
                                 ],
@@ -381,7 +445,7 @@ class profile extends StatelessWidget {
                       width: 320,
                       decoration:
                       BoxDecoration(
-                        color: Color(0xFFC3A8A1),
+                        color: Color(0xFF009E60),
                         borderRadius: BorderRadius.circular(30),),
                       child: GestureDetector(
                         onTap: (){
@@ -398,7 +462,7 @@ class profile extends StatelessWidget {
                             color: Colors.transparent,
                             child: Icon(
                               Icons.calculate_rounded,
-                              color: Colors.black,
+                              color: Colors.white,
                               size: 30,
                             ),
                           ),
@@ -410,7 +474,7 @@ class profile extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('Fertilizer Calc.',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Color(0xFF2B2B2B),fontSize: 20),),
+                                Text('Fertilizer Calc.',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Colors.white,fontSize: 20),),
                               ],
                             ),
                           ),
@@ -424,7 +488,7 @@ class profile extends StatelessWidget {
                               children: [
                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   size: 30,
                                 ),
                               ],
