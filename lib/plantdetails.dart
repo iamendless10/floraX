@@ -58,7 +58,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                     Text(resp_weather['temp'] ?? "unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                     Text(resp_weather['temp'].toString() +' °C' ?? "unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                    ],
                  ),
                ),
@@ -71,7 +71,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                      Text(resp_weather['humidity'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                      Text(resp_weather['humidity'].toString() +' %' ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                     ],
                   ),
                 ),
