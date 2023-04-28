@@ -7,6 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:pp_template/contactus.dart';
 import 'package:camera/camera.dart';
 import 'package:pp_template/fertilizer.dart';
+import 'package:pp_template/soiltype.dart';
 import 'Homescreen.dart';
 import 'SearchBarScreen.dart';
 import 'TakePictureScreen.dart';
@@ -254,7 +255,7 @@ class profile extends StatelessWidget {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => contactus()),
+                            MaterialPageRoute(builder: (context) => soiltype()),
                           );
                         },
                         child: Row(
