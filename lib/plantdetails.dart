@@ -163,17 +163,6 @@ class _PlantDetailsState extends State<PlantDetails> {
                 ),
 
                 Container(
-                  height: 80,
-                  width: 380,
-                  color: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Recomended',textAlign: TextAlign.center,style: GoogleFonts.catamaran(color: Colors.black,fontSize: 30,),),
-                    ],
-                  ),
-                ),
-                Container(
                   height: 220,
                   width: 380,
                   color: Colors.white,
