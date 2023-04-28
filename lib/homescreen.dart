@@ -79,12 +79,12 @@ class _homescreenState extends State<homescreen> {
               ),
               GButton(icon: Icons.search,
               text: 'Search',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchBarScreen()),
-                  );
-                },
+                // onPressed: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => SearchBarScreen()),
+                //   );
+                // },
               ),
               GButton(icon: Icons.qr_code_scanner,
               text: 'Scan',
@@ -110,12 +110,12 @@ class _homescreenState extends State<homescreen> {
               ),
               GButton(icon: Icons.person_outline_rounded,
               text: 'Profile',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => profile()),
-                  );
-                },
+                // onPressed: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => profile()),
+                //   );
+                // },
               ),
 
             ],

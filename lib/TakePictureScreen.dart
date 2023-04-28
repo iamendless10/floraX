@@ -201,45 +201,45 @@ class DisplayPictureScreen extends StatelessWidget {
             //   },
             // ),
             SizedBox(height: 30,),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color(0xFFC3999A),
-              ),
-              height: 60,
-              width: 270,
-              child: Center(child: Row(
-                children: <Widget>[
-                  SizedBox(height: 7,),
-                  SizedBox(width: 20,),
-                  Container(
-                    height: 60,
-                    width: 80,
-                    color: Colors.transparent,
-                    child: Lottie.asset('lottie/detect_disease.json'),
-                  ),
-                  TextButton(
-                    child: Text(
-                      'Detect Disease',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.balsamiqSans(
-                          color: Colors.white, fontSize: 19),
-                    ),
-                    onPressed: () async {
-                      // String _ml_keyword = await detectPlant(imagePath);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => diseasesplash(path: imagePath)),
-
-                      );
-
-                    },
-                  ),
-                ],
-              ),
-              ),
-
-            ),
+            // Container(
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(20),
+            //     color: Color(0xFFC3999A),
+            //   ),
+            //   height: 60,
+            //   width: 270,
+            //   child: Center(child: Row(
+            //     children: <Widget>[
+            //       SizedBox(height: 7,),
+            //       SizedBox(width: 20,),
+            //       Container(
+            //         height: 60,
+            //         width: 80,
+            //         color: Colors.transparent,
+            //         child: Lottie.asset('lottie/detect_disease.json'),
+            //       ),
+            //       TextButton(
+            //         child: Text(
+            //           'Detect Disease',
+            //           textAlign: TextAlign.center,
+            //           style: GoogleFonts.balsamiqSans(
+            //               color: Colors.white, fontSize: 19),
+            //         ),
+            //         onPressed: () async {
+            //           // String _ml_keyword = await detectPlant(imagePath);
+            //           Navigator.push(
+            //             context,
+            //             MaterialPageRoute(builder: (context) => diseasesplash(path: imagePath)),
+            //
+            //           );
+            //
+            //         },
+            //       ),
+            //     ],
+            //   ),
+            //   ),
+            //
+            // ),
           ],
         ),
 

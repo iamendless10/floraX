@@ -120,7 +120,10 @@ class aboutus extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        Text('Pentium Predators',textAlign: TextAlign.center,style: GoogleFonts.orbitron(color: Colors.black,fontSize: 10,),),
+                                        Text('Kayal Ennian AG',textAlign: TextAlign.center,style: GoogleFonts.orbitron(color: Colors.black,fontSize: 10,),),
+                                        SizedBox(height: 7,),
+                                        Text('Frontend Dev.',textAlign: TextAlign.center,style: GoogleFonts.orbitron(color: Colors.black,fontSize: 10,),),
+
                                       ],
                                     ),
                                   ),
