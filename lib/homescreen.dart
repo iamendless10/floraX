@@ -687,6 +687,7 @@ class _homescreenState extends State<homescreen> {
                 ),
               ),
               SizedBox(height: 10,),
+
               // Container(
               //   height: 150,
               //   width: double.infinity,
@@ -720,178 +721,176 @@ class _homescreenState extends State<homescreen> {
               //     ],
               //   ),
               // ),
-              // Container(
-              //   height: 400,
-              //   width: 360,
-              //   color: Colors.transparent,
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //       Text('    Discover new plants',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 23,),),
-              //       Text('    Everyday near you.',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 23,),),
-              //       SizedBox(height: 8,),
-              //       Row(
-              //         children: [
-              //           Container(
-              //             height: 250,
-              //             width: 180,
-              //             color: Colors.transparent,
-              //             child: Image.asset('images/neem.png',fit: BoxFit.fitHeight,),
-              //           ),
-              //           Container(
-              //             height: 320,
-              //
-              //             width: 180,
-              //             color: Colors.transparent,
-              //             child: Column(
-              //               children: [
-              //                 SizedBox(height: 13,),
-              //                 Container(
-              //                   decoration:
-              //                   BoxDecoration(
-              //                       boxShadow: [
-              //                         BoxShadow(
-              //                           color: Colors.black.withOpacity(0.5),
-              //                           spreadRadius: 1,
-              //                           blurRadius: 5,
-              //                           offset: Offset(0, 3),
-              //                         ),
-              //                       ],
-              //                       color: Color(0xFFADDFAD),
-              //
-              //                       borderRadius: BorderRadius.circular(10)
-              //                   ),
-              //                   height: 45,
-              //                   width: 150,
-              //                   child: Column(
-              //                     crossAxisAlignment: CrossAxisAlignment.center,
-              //                     mainAxisAlignment: MainAxisAlignment.center,
-              //                     children: [
-              //                       Text('Water /day',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-              //                       Text('25 L',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
-              //                     ],
-              //                   ),
-              //                 ),
-              //                 SizedBox(height: 10,),
-              //                 Container(
-              //                   decoration:
-              //                   BoxDecoration(
-              //                       boxShadow: [
-              //                         BoxShadow(
-              //                           color: Colors.black.withOpacity(0.5),
-              //                           spreadRadius: 1,
-              //                           blurRadius: 5,
-              //                           offset: Offset(0, 3),
-              //                         ),
-              //                       ],
-              //                       color: Color(0xFFADDFAD),
-              //
-              //                       borderRadius: BorderRadius.circular(10)
-              //                   ),
-              //                   height: 45,
-              //                   width: 150,
-              //                   child: Column(
-              //                     crossAxisAlignment: CrossAxisAlignment.center,
-              //                     mainAxisAlignment: MainAxisAlignment.center,
-              //                     children: [
-              //                       Text('Humidity',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-              //                       Text('65%',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
-              //                     ],
-              //                   ),
-              //                 ),
-              //                 SizedBox(height: 10,),
-              //                 Container(
-              //                   height: 45,
-              //                   width: 150,
-              //                   decoration:
-              //                   BoxDecoration(
-              //                       boxShadow: [
-              //                         BoxShadow(
-              //                           color: Colors.black.withOpacity(0.5),
-              //                           spreadRadius: 1,
-              //                           blurRadius: 5,
-              //                           offset: Offset(0, 3),
-              //                         ),
-              //                       ],
-              //                       color: Color(0xFFADDFAD),
-              //
-              //                       borderRadius: BorderRadius.circular(10)
-              //                   ),
-              //                   child: Column(
-              //                     crossAxisAlignment: CrossAxisAlignment.center,
-              //                     mainAxisAlignment: MainAxisAlignment.center,
-              //                     children: [
-              //                       Text('Category',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-              //                       Text('Outdoor',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
-              //                     ],
-              //                   ),
-              //                 ),
-              //                 SizedBox(height: 10,),
-              //                 Container(
-              //                   height: 45,
-              //                   width: 150,
-              //                   decoration:
-              //                   BoxDecoration(
-              //                       boxShadow: [
-              //                         BoxShadow(
-              //                           color: Colors.black.withOpacity(0.5),
-              //                           spreadRadius: 1,
-              //                           blurRadius: 5,
-              //                           offset: Offset(0, 3),
-              //                         ),
-              //                       ],
-              //                       color: Color(0xFFADDFAD),
-              //
-              //                       borderRadius: BorderRadius.circular(10)
-              //                   ),
-              //                   child: Column(
-              //                     crossAxisAlignment: CrossAxisAlignment.center,
-              //                     mainAxisAlignment: MainAxisAlignment.center,
-              //                     children: [
-              //                       Text('Avg Height',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-              //                       Text('15 mtrs',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
-              //                     ],
-              //                   ),
-              //                 ),
-              //                 SizedBox(height: 10,),
-              //                 Container(
-              //                   height: 45,
-              //                   width: 150,
-              //                   decoration:
-              //                   BoxDecoration(
-              //                       boxShadow: [
-              //                         BoxShadow(
-              //                           color: Colors.black.withOpacity(0.5),
-              //                           spreadRadius: 1,
-              //                           blurRadius: 5,
-              //                           offset: Offset(0, 3),
-              //                         ),
-              //                       ],
-              //                       color: Color(0xFFADDFAD),
-              //
-              //                       borderRadius: BorderRadius.circular(10)
-              //                   ),
-              //                   child: Column(
-              //                     crossAxisAlignment: CrossAxisAlignment.center,
-              //                     mainAxisAlignment: MainAxisAlignment.center,
-              //                     children: [
-              //                       Text('Care',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-              //                       Text('Not needed',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
-              //                     ],
-              //                   ),
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //
-              //         ],
-              //       ),
-              //
-              //     ],
-              //   ),
-              //
-              // ),
+
               SizedBox(height: 10,),
+              Container(
+                height: 400,
+                width: 360,
+                color: Colors.transparent,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('                       Your land ',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 23,),),
+                    Text('                       details',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 23,),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 320,
+
+                          width: 180,
+                          color: Colors.transparent,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 13,),
+                              Container(
+                                decoration:
+                                BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],
+                                    color: Color(0xFFADDFAD),
+
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                height: 45,
+                                width: 150,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text('Ammonia',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
+                                    Text('25 L',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                decoration:
+                                BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],
+                                    color: Color(0xFFADDFAD),
+
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                height: 45,
+                                width: 150,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text('Nitrogen dioxide',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
+                                    Text('65%',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                height: 45,
+                                width: 150,
+                                decoration:
+                                BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],
+                                    color: Color(0xFFADDFAD),
+
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text('Carbon dioxide',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
+                                    Text('Outdoor',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                height: 45,
+                                width: 150,
+                                decoration:
+                                BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],
+                                    color: Color(0xFFADDFAD),
+
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text('Humidity',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
+                                    Text('15 mtrs',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                height: 45,
+                                width: 150,
+                                decoration:
+                                BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ],
+                                    color: Color(0xFFADDFAD),
+
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text('Temperature',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
+                                    Text('Not needed',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
+
+                  ],
+                ),
+
+              ),
             ],
           ),
         ),
