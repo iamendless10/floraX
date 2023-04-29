@@ -13,6 +13,9 @@ import 'package:pp_template/test.dart';
 import 'package:pp_template/TakePictureScreen.dart';
 import 'package:http/http.dart' as http2;
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:http/http.dart' as http;
+import 'package:pp_template/backendapi.dart';
+import 'dart:convert';
 
 class homescreen extends StatefulWidget {
   const homescreen({Key? key}) : super(key: key);
@@ -33,13 +36,27 @@ class _homescreenState extends State<homescreen> {
         print(response.body);
       }
   }
+  Map<String, dynamic> resp = {};
 
   @override
   void initState() {
     super.initState();
     _futureUsername = getUsername('test@gmail.com');
+    getDatafromSensors();
   }
-
+  Future getDatafromSensors() async
+  {
+    String apiResponse = '';
+    http.Response response;
+    response= await http.get(Uri.parse(nodeUrl+"/data"));
+    if(response.statusCode == 200)
+    {
+      setState(() {
+        apiResponse = response.body;
+        resp = json.decode(apiResponse);
+      });
+    }
+  }
   @override
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   Widget build(BuildContext context) {
@@ -768,7 +785,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Ammonia',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('25 L',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text(resp['ammonia'].toString()+' ppm'??'6.84 ppm',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -795,7 +812,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Nitrogen dioxide',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('65%',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text(resp['nitrogen_dioxide'].toString()+' ppm'??'79.32 ppm',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -822,7 +839,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Carbon dioxide',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('Outdoor',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text(resp['carbon_dioxide'].toString()+' ppm'??'194.42 ppm',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -849,7 +866,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Humidity',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('15 mtrs',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text(resp['humidity'].toString()??'156',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -876,7 +893,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Temperature',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('Not needed',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text(resp['temp'].toString()??'32.30',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
