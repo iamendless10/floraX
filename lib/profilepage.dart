@@ -265,7 +265,7 @@ class profile extends StatelessWidget {
                               width: 100,
                               color: Colors.transparent,
                               child: Icon(
-                                Icons.call,
+                                Icons.energy_savings_leaf,
                                 color: Colors.white,
                                 size: 30,
                               ),
@@ -278,7 +278,7 @@ class profile extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Contact Us',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Colors.white,fontSize: 20),),
+                                  Text('Plant Recommandations',textAlign: TextAlign.center,style: GoogleFonts.quicksand(color: Colors.white,fontSize: 20),),
                                 ],
                               ),
                             ),

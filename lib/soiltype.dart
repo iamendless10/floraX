@@ -18,7 +18,8 @@ class soiltype extends StatefulWidget {
 
 class _soiltypeState extends State<soiltype> {
   int _selectedIndex = 1;
-  final List<Map<String, dynamic>> _allUsers = [
+  List <Map<String, dynamic>> _allUsers = [];
+  List<Map<String, dynamic>> _alluvial = [
     {
       "image":
       "https://s3.tebi.io/florax2/hibiscus_display.jpg",
@@ -29,22 +30,14 @@ class _soiltypeState extends State<soiltype> {
     },
     {
       "id": 2,
-      "name": "Banana",
-      'page':'banana',
-      "des": "Musa Acuminata",
+      "name": "Rice",
+      'page': 'rice',
+      "des": "Oryza Sativa",
       "image":
-      "https://s3.tebi.io/florax/Images/_7d5074b7-1613-4d74-81b4-eb85ab127a55-removebg-preview.png",
+      "https://s3.tebi.io/florax/Images/rice_display.jpg",
     },
     {
       "id": 3,
-      "name": "Neem",
-      'page':'neem',
-      "des": "Azadirachta Indica",
-      "image":
-      "https://s3.tebi.io/florax/Images/neem_display.jpg",
-    },
-    {
-      "id": 4,
       "name": "Coconut",
       'page':'coconut',
       "des": "Cocos Nucifera",
@@ -52,7 +45,7 @@ class _soiltypeState extends State<soiltype> {
       "https://s3.tebi.io/florax/Images/coconut_display.jpg",
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Mango",
       'page':'mango',
       "des": "Mangifera Indica",
@@ -60,15 +53,7 @@ class _soiltypeState extends State<soiltype> {
       "https://s3.tebi.io/florax/Images/mango_display.jpg",
     },
     {
-      "id": 6,
-      "name": "Rose",
-      'page':'rose',
-      "des": "Rosa Rubiginosa",
-      "image":
-      "https://s3.tebi.io/florax/Images/rose_display.jpg",
-    },
-    {
-      "id": 7,
+      "id": 5,
       "name": "Palm Tree",
       'page':'palm',
       "des": "Arecaceae",
@@ -76,7 +61,53 @@ class _soiltypeState extends State<soiltype> {
       "https://s3.tebi.io/florax/Images/plam_tree.png",
     },
     {
-      "id": 8,
+      "id": 6,
+      "name": "Lemon",
+      'page':'lemon',
+      "des": "Citrus Limon",
+      "image":
+      "https://s3.tebi.io/florax/Images/lemon_display.jpg",
+    },
+  ];
+  List<Map<String, dynamic>> _salline = [
+    {
+      "id": 1,
+      "name": "Coconut",
+      'page':'coconut',
+      "des": "Cocos Nucifera",
+      "image":
+      "https://s3.tebi.io/florax/Images/coconut_display.jpg",
+    },
+    {
+      "id": 2,
+      "name": "Lemon",
+      'page':'lemon',
+      "des": "Citrus Limon",
+      "image":
+      "https://s3.tebi.io/florax/Images/lemon_display.jpg",
+    },
+    ];
+  List<Map<String, dynamic>> _black = [
+    {
+      "id": 1,
+      "name": "Rose",
+      'page':'rose',
+      "des": "Rosa Rubiginosa",
+      "image":
+      "https://s3.tebi.io/florax/Images/rose_display.jpg",
+    },
+    {
+      "id": 2,
+      "name": "Lemon",
+      'page':'lemon',
+      "des": "Citrus Limon",
+      "image":
+      "https://s3.tebi.io/florax/Images/lemon_display.jpg",
+    },
+  ];
+  List<Map<String, dynamic>> _sandy = [
+    {
+      "id": 1,
       "name": "Tomato",
       'page':'tomato',
       "des": "Solanum Lycopersicum",
@@ -84,7 +115,7 @@ class _soiltypeState extends State<soiltype> {
       "https://s3.tebi.io/florax2/tomato_details_img.png",
     },
     {
-      "id": 9,
+      "id": 2,
       "name": "Banyan",
       'page':'banyan',
       "des": "Ficus Benghalensis",
@@ -92,74 +123,32 @@ class _soiltypeState extends State<soiltype> {
       "https://s3.tebi.io/florax/Images/banyan_display.jpg",
     },
     {
-      "id": 10,
+      "id": 3,
       "name": "Lemon",
       'page':'lemon',
       "des": "Citrus Limon",
       "image":
       "https://s3.tebi.io/florax/Images/lemon_display.jpg",
     },
-    {
-      "id": 10,
-      "name": "Orange",
-      'page':'orange',
-      "des": "Citrus Sinensis",
-      "image":
-      "https://s3.tebi.io/florax4/orange_display.jpg",
-    },
-    {
-      "id": 10,
-      "name": "Rice",
-      'page':'rice',
-      "des": "Oryza Sativa",
-      "image":
-      "https://s3.tebi.io/florax/Images/rice_display.jpg",
-    },
-    {
-      "id": 11,
-      "name": "Turmeric",
-      'page':'turmeric',
-      "des": "Curcuma Longa",
-      "image":
-      "https://s3.tebi.io/florax/Images/turmeric_display.jpg",
-    },
-
   ];
 
-  // This list holds the data for the list view
-  List<Map<String, dynamic>> _foundUsers = [];
-  String _selectedOption='soil 1';
+
+
+
+  String _selectedOption='Alluvial Soil';
 
   List<String> _options = [
-    'soil 1',
-    'soil 2',
-    'soil 3',
+    'Alluvial Soil',
+    'Saline Soil',
+    'Black Soil',
+    'Sandy Soil'
   ];
   @override
-  initState() {
-    // at the beginning, all users are shown
-    _foundUsers = _allUsers;
-    super.initState();
-  }
-
-  // This function is called whenever the text field changes
-  void _runFilter(String enteredKeyword) {
-    List<Map<String, dynamic>> results = [];
-    if (enteredKeyword.isEmpty) {
-      // if the search field is empty or only contains white-space, we'll display all users
-      results = _allUsers;
-    } else {
-      results = _allUsers
-          .where((user) =>
-          user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
-          .toList();
-      // we use the toLowerCase() method to make it case-insensitive
-    }
-
-    // Refresh the UI
+  void initState() {
     setState(() {
-      _foundUsers = results;
+      _allUsers = _alluvial;
     });
+    super.initState();
   }
   @override
   Widget build(BuildContext context) {
@@ -245,7 +234,7 @@ class _soiltypeState extends State<soiltype> {
       appBar: AppBar(
         backgroundColor: Color(0xFF355E3B),
         centerTitle: true,
-        title:  Text('Discover new plants',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Colors.white,fontSize: 20,),),
+        title:  Text('Plant Recommendations ',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Colors.white,fontSize: 20,),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -256,6 +245,22 @@ class _soiltypeState extends State<soiltype> {
           onChanged: (newValue) {
             setState(() {
               _selectedOption = newValue!;
+              if(_selectedOption == 'Saline Soil')
+                {
+                  _allUsers = _salline;
+                }
+              else if(_selectedOption == 'Alluvial Soil')
+              {
+                _allUsers = _alluvial;
+              }
+              else if(_selectedOption == 'Black Soil')
+              {
+                _allUsers = _black;
+              }
+              else if(_selectedOption == 'Sandy Soil')
+              {
+                _allUsers = _sandy;
+              }
             });
           },
           items: _options.map((option) {
@@ -283,9 +288,9 @@ class _soiltypeState extends State<soiltype> {
               height: 20,
             ),
             Expanded(
-              child: _foundUsers.isNotEmpty
+              child: _allUsers.isNotEmpty
                   ? ListView.builder(
-                itemCount: _foundUsers.length,
+                itemCount: _allUsers.length,
                 itemBuilder: (context, index) => Card(
                   elevation: 1,
                   margin: const EdgeInsets.symmetric(vertical: 2),
@@ -293,15 +298,15 @@ class _soiltypeState extends State<soiltype> {
                     leading: CircleAvatar(
                       radius: 30.0,
                       backgroundImage:
-                      NetworkImage(_foundUsers[index]['image']),
+                      NetworkImage(_allUsers[index]['image']),
                       backgroundColor: Colors.transparent,
                     ),
-                    title: Text(_foundUsers[index]['name']),
-                    subtitle: Text('${_foundUsers[index]["des"]}'),
+                    title: Text(_allUsers[index]['name']),
+                    subtitle: Text('${_allUsers[index]["des"]}'),
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => beforetest(plant: _foundUsers[index]['page'],)),
+                        MaterialPageRoute(builder: (context) => beforetest(plant: _allUsers[index]['page'],)),
                       );
                     },
                   ),
