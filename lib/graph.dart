@@ -1,16 +1,18 @@
+
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:pp_template/Homescreen.dart';
+
+import 'location.dart';
 
 class Graph extends StatelessWidget {
   final List<DateTime> data = [
-    DateTime(2023, 7, 20, 10, 0), // Example DateTime objects (replace with your data)
+    DateTime(2023, 7, 20, 10, 0),
     DateTime(2023, 7, 20, 12, 0),
     DateTime(2023, 7, 20, 14, 0),
     DateTime(2023, 7, 21, 10, 0),
-    // DateTime(2023, 7, 21, 11, 0),
-    // DateTime(2023, 7, 21, 12, 15),
-    // DateTime(2023, 8, 21, 12, 15),
     // Add more DateTime objects here
   ];
 
@@ -27,74 +29,122 @@ class Graph extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        color: Colors.black,/// BACKGROUND COLOR 1
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              height: 750,
-              width: 400,/// BACKGROUND COLOR 2
-              margin: const EdgeInsets.only(top: 30),
-              padding: const EdgeInsets.all(5.0),
-              child: LineChart(
-                LineChartData(
-                  minX: xValue(data.first), // Minimum x-coordinate (date)
-                  maxX: xValue(data.last), // Maximum x-coordinate (date)
-                  minY: 0, // Minimum y-coordinate (time)
-                  maxY: 24, // Maximum y-coordinate (time)
-                  borderData: FlBorderData(show: true),
-                  titlesData: FlTitlesData(
-                    topTitles: SideTitles(showTitles: false),
-                    rightTitles: SideTitles(showTitles: false),
-                    leftTitles: SideTitles(
-                        getTextStyles: (context, value){
-                          return const TextStyle(
+      body: Column(
+        children: [
+          Container(
+            height: 550,
+            width: double.infinity,
+            color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  height: 750,
+                  width: 400,
+                  margin: const EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.all(5.0),
+                  child: LineChart(
+                    LineChartData(
+                      minX: xValue(data.first),
+                      maxX: xValue(data.last),
+                      minY: 0,
+                      maxY: 24,
+                      borderData: FlBorderData(show: true),
+                      titlesData: FlTitlesData(
+                        topTitles: SideTitles(showTitles: false),
+                        rightTitles: SideTitles(showTitles: false),
+                        leftTitles: SideTitles(
+                          getTextStyles: (context, value) {
+                            return const TextStyle(
                               color: Colors.white,
                               fontSize: 10,
-                              fontWeight: FontWeight.normal
-                          );
-                        },
-                        showTitles: true ),
-                    bottomTitles: SideTitles(
-                      getTextStyles: (context, value){
-                        return const TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.normal
-                        );
-                      },
-                      showTitles: true,
-                      getTitles: (value) {
-                        // Convert the double value back to DateTime
-                        final dateTime = DateTime.fromMillisecondsSinceEpoch(value.toInt());
-                        return DateFormat('MMM d').format(dateTime);
-                      },
+                              fontWeight: FontWeight.normal,
+                            );
+                          },
+                          showTitles: true,
+                        ),
+                        bottomTitles: SideTitles(
+                          getTextStyles: (context, value) {
+                            return const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal,
+                            );
+                          },
+                          showTitles: true,
+                          getTitles: (value) {
+                            final dateTime = DateTime.fromMillisecondsSinceEpoch(value.toInt());
+                            return DateFormat('MMM d').format(dateTime);
+                          },
+                        ),
+                      ),
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: data
+                              .map((dateTime) => FlSpot(xValue(dateTime), yValue(dateTime)))
+                              .toList(),
+                          isCurved: false,
+                          dotData: FlDotData(show: true),
+                          belowBarData: BarAreaData(show: true, colors: [Colors.blue.withOpacity(0.4)]),
+                          colors: [Colors.white], // LINE COLOR
+                        ),
+                      ],
                     ),
                   ),
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: data
-                          .map((dateTime) => FlSpot(xValue(dateTime), yValue(dateTime)))
-                          .toList(),
-                      isCurved: false,
-                      dotData: FlDotData(show: true),
-                      belowBarData: BarAreaData(show: true, colors: [Colors.blue.withOpacity(0.4  )]),
-                      colors: [Colors.white],// LINE COLOR
-                    ),
-                  ],
                 ),
               ),
             ),
           ),
-        ),
+          Container(
+            height: 235, // Set the height for the additional container
+            width: double.infinity,
+            color: Colors.green, // Replace this with your desired color
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 10,),
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to another screen here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyApp(), // Replace YourDestinationScreen with the desired destination screen widget
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 280,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Elephant",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.comfortaa(
+                            color: Color(0xFFffffff),
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
