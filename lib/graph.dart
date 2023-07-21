@@ -1,33 +1,50 @@
-
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:pp_template/Homescreen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:pp_template/backendapi.dart';
 
 import 'location.dart';
 
-class Graph extends StatelessWidget {
-  final List<DateTime> data = [
-    DateTime(2023, 7, 20, 10, 0),
-    DateTime(2023, 7, 20, 12, 0),
-    DateTime(2023, 7, 20, 14, 0),
-    DateTime(2023, 7, 21, 10, 0),
-    // Add more DateTime objects here
-  ];
+class Graph extends StatefulWidget {
+  @override
+  State<Graph> createState() => _GraphState();
+}
+
+class _GraphState extends State<Graph> {
+  Map<String, dynamic> resp = {};
+  List<Map<String, dynamic>> data = []; // Updated data list
+
+  void getLogs() async {
+    final response = await http.get(Uri.parse(apiUrl + '/logs'));
+    if (response.statusCode == 200) {
+      setState(() {
+        data = List<Map<String, dynamic>>.from(json.decode(response.body));
+      });
+    }
+  }
+
+  double xValue(Map<String, dynamic> entry) {
+    final dateTime = DateTime.parse(entry['datetime']['\$date']);
+    return dateTime.millisecondsSinceEpoch.toDouble();
+  }
+
+  double yValue(Map<String, dynamic> entry) {
+    final dateTime = DateTime.parse(entry['datetime']['\$date']);
+    return dateTime.hour.toDouble() + (dateTime.minute.toDouble() / 60.0);
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    getLogs(); // Fetch data when the widget is created
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Function to convert DateTime to double for the x-axis (date)
-    double xValue(DateTime dateTime) {
-      return dateTime.millisecondsSinceEpoch.toDouble();
-    }
-
-    // Function to convert DateTime to double for the y-axis (time)
-    double yValue(DateTime dateTime) {
-      return dateTime.hour.toDouble() + (dateTime.minute.toDouble() / 60.0);
-    }
-
     return Scaffold(
       body: Column(
         children: [
@@ -50,8 +67,8 @@ class Graph extends StatelessWidget {
                   padding: const EdgeInsets.all(5.0),
                   child: LineChart(
                     LineChartData(
-                      minX: xValue(data.first),
-                      maxX: xValue(data.last),
+                      minX: data.isNotEmpty ? xValue(data.first) : 0,
+                      maxX: data.isNotEmpty ? xValue(data.last) : 0,
                       minY: 0,
                       maxY: 24,
                       borderData: FlBorderData(show: true),
@@ -86,7 +103,7 @@ class Graph extends StatelessWidget {
                       lineBarsData: [
                         LineChartBarData(
                           spots: data
-                              .map((dateTime) => FlSpot(xValue(dateTime), yValue(dateTime)))
+                              .map((entry) => FlSpot(xValue(entry), yValue(entry)))
                               .toList(),
                           isCurved: false,
                           dotData: FlDotData(show: true),
