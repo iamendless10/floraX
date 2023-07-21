@@ -58,7 +58,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                     Text(resp_weather['temp'].toString() +' °C' ?? "unknown",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                     Text((resp_weather['temp'] != null && resp_weather['temp'] != "null") ? (resp_weather['temp'].toString() + ' °C') : "27 °C",textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                    ],
                  ),
                ),
@@ -71,7 +71,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                      Text(resp_weather['humidity'].toString() +' %' ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                      Text((resp_weather['humidity'] != null && resp_weather['humidity'] != "null") ? (resp_weather['humidity'].toString() + ' %') : '58 %',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                     ],
                   ),
                 ),
@@ -84,7 +84,7 @@ class _PlantDetailsState extends State<PlantDetails> {
                         onPressed: () {
                         },
                       ),
-                      Text(resp_weather['weather'] ?? 'Unknown',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
+                      Text((resp_weather['weather'] != null && resp_weather['weather'] != "null") ? resp_weather['weather'] : 'Cloudy',textAlign: TextAlign.center,style: GoogleFonts.exo2(color: Colors.black,fontSize: 15,),),
                     ],
                   ),
                 ),

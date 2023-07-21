@@ -12,6 +12,8 @@ import 'package:pp_template/profilepage.dart';
 import 'package:pp_template/test.dart';
 import 'package:pp_template/TakePictureScreen.dart';
 import 'package:http/http.dart' as http2;
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class homescreen extends StatefulWidget {
@@ -24,7 +26,7 @@ class _homescreenState extends State<homescreen> {
   late Future<String> _futureUsername;
   final TextEditingController _countController = TextEditingController();
   bool _countinValid = false;
-
+  Map<String, dynamic> resp_weather ={};
   void motorFunction(String state) async
   {
     final response = await http2.get(Uri.parse(nodeUrl+'/motor/'+state));
@@ -34,10 +36,22 @@ class _homescreenState extends State<homescreen> {
       }
   }
 
+  void getWeatherInfo () async
+  {
+    final response = await http.get(Uri.parse(nodeUrl+'/data'));
+    if(response.statusCode == 200)
+    {
+      setState(() {
+        resp_weather = json.decode(response.body);
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _futureUsername = getUsername('test@gmail.com');
+    getWeatherInfo();
   }
 
   @override
@@ -730,14 +744,14 @@ class _homescreenState extends State<homescreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('                       Your land ',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 23,),),
-                    Text('                       details',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF2B2B2B),fontSize: 23,),),
+                    Text('                 Your land details',textAlign: TextAlign.left,style: GoogleFonts.openSans(color: Color(0xFF2B2B2B),fontSize: 23,),),
+                    // Text('details',textAlign: TextAlign.left,style: GoogleFonts.openSans(color: Color(0xFF2B2B2B),fontSize: 23,),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          height: 320,
+                          height: 280,
 
                           width: 180,
                           color: Colors.transparent,
@@ -768,7 +782,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Ammonia',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('25 L',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text((resp_weather['ammonia'] != null && resp_weather['ammonia'] != "null") ? (resp_weather['ammonia'] + ' ppm') : '0.38 ppm',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -795,7 +809,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Nitrogen dioxide',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('65%',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text((resp_weather['nitrogen_dioxide'] != null && resp_weather['nitrogen_dioxide'] != "null") ? (resp_weather['nitrogen_dioxide'] + ' ppm') : '4.42 ppm',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -822,7 +836,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Carbon dioxide',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('Outdoor',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text((resp_weather['carbon_dioxide'] != null && resp_weather['carbon_dioxide'] != "null") ? (resp_weather['carbon_dioxide'] + ' ppm') : '10.83 ppm',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -849,7 +863,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Humidity',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('15 mtrs',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text((resp_weather['humidity'] != null && resp_weather['humidity'] != "null") ? (resp_weather['humidity'] + ' %') : '58 %',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),
@@ -876,7 +890,7 @@ class _homescreenState extends State<homescreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Temperature',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF4D4E52),fontSize: 10,),),
-                                    Text('Not needed',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
+                                    Text((resp_weather['temp'] != null && resp_weather['temp'] != "null") ? (resp_weather['temp'] + ' °C') : '27 °C',textAlign: TextAlign.left,style: GoogleFonts.poppins(color: Color(0xFF202123),fontSize: 20,),),
                                   ],
                                 ),
                               ),

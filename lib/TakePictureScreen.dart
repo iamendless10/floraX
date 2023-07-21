@@ -150,20 +150,20 @@ class DisplayPictureScreen extends StatelessWidget {
           children: [
             Container(
                 child: Image.file(File(imagePath))),
-            SizedBox(height: 30,),
+            SizedBox(height: 70,),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Color(0xFF355E3B),
               ),
-              height: 60,
-              width: 270,
+              height: 10,
+              width: 290,
               child: Center(child: Row(
                 children: <Widget>[
                   SizedBox(height: 7,),
                   SizedBox(width: 20,),
                   Container(
-                    height: 60,
+                    height: 80,
                     width: 80,
                     color: Colors.transparent,
                     child: Lottie.asset('lottie/detect_leaf.json'),

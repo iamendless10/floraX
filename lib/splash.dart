@@ -107,7 +107,7 @@ class splash extends StatelessWidget {
               child:Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('By tapping "plant with us!" and using florax app, you are agreeing to our terms of service and privacy policy',textAlign: TextAlign.center,style: GoogleFonts.philosopher(color: Colors.black,fontSize: 10),),
+                  Text('By tapping "plant with us!" and using anider app, you are agreeing to our terms of service and privacy policy',textAlign: TextAlign.center,style: GoogleFonts.philosopher(color: Colors.black,fontSize: 10),),
                   Text('All rights reserved.',textAlign: TextAlign.center,style: GoogleFonts.philosopher(color: Colors.black,fontSize: 10),),
                 ],
               ),
