@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:pp_template/backendapi.dart';
-import 'package:pp_template/inappwebview.dart';
-
 import 'location.dart';
+import 'package:pp_template/inappwebview.dart';
 
 class Graph extends StatefulWidget {
   @override
@@ -28,15 +26,25 @@ class _GraphState extends State<Graph> {
     }
   }
 
+  DateTime convertUtcToIst(DateTime utcDateTime) {
+    // UTC+5:30 is Indian Standard Time (IST)
+    return utcDateTime.add(const Duration(hours: 5, minutes: 30));
+  }
+
   double xValue(Map<String, dynamic> entry) {
-    final dateTime = DateTime.parse(entry['datetime']['\$date']);
-    return dateTime.millisecondsSinceEpoch.toDouble();
+    final utcDateTime = DateTime.parse(entry['datetime']['\$date']);
+    final istDateTime = convertUtcToIst(utcDateTime);
+
+    return istDateTime.millisecondsSinceEpoch.toDouble();
   }
 
   double yValue(Map<String, dynamic> entry) {
-    final dateTime = DateTime.parse(entry['datetime']['\$date']);
-    return dateTime.hour.toDouble() + (dateTime.minute.toDouble() / 60.0);
+    final utcDateTime = DateTime.parse(entry['datetime']['\$date']);
+    final istDateTime = convertUtcToIst(utcDateTime);
+
+    return istDateTime.hour.toDouble() + (istDateTime.minute.toDouble() / 60.0);
   }
+
 
 
   @override
