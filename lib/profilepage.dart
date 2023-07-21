@@ -155,7 +155,7 @@ class profile extends StatelessWidget {
                   );
                 },
               ),
-              GButton(icon: Icons.person_outline_rounded,
+              GButton(icon: Icons.location_on_rounded,
                 text: 'Profile',
                 // onPressed: () {
                 //   Navigator.push(

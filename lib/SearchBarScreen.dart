@@ -7,6 +7,7 @@ import 'package:pp_template/TakePictureScreen.dart';
 import 'package:camera/camera.dart';
 import 'package:pp_template/profilepage.dart';
 import 'beforetest.dart';
+import 'graph.dart';
 
 
 class SearchBarScreen extends StatefulWidget {
@@ -291,13 +292,14 @@ class _SearchBarScreenState extends State<SearchBarScreen> {
                   );
                 },
               ),
-              GButton(icon: Icons.person_outline_rounded,
-                text: 'Profile',
-                  onPressed: () {
+              GButton(icon: Icons.location_on_rounded,
+                text: 'Graph',
+                onPressed: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => profile()),
-                  );}
+                    context,
+                    MaterialPageRoute(builder: (context) => Graph()),
+                  );
+                },
               ),
 
             ],

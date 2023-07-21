@@ -171,7 +171,7 @@ class _homescreenState extends State<homescreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Graph()),
+                    MaterialPageRoute(builder: (context) => SearchBarScreen()),
                   );
                 },
               ),
@@ -197,12 +197,12 @@ class _homescreenState extends State<homescreen> {
                   );
                 },
               ),
-              GButton(icon: Icons.person_outline_rounded,
-              text: 'Profile',
+              GButton(icon: Icons.location_on_rounded,
+              text: 'Graph',
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => profile()),
+                    MaterialPageRoute(builder: (context) => Graph()),
                   );
                 },
               ),

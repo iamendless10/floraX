@@ -3,6 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
+import 'package:lottie/lottie.dart';
 import 'dart:convert';
 import 'package:pp_template/backendapi.dart';
 import 'location.dart';
@@ -59,9 +60,9 @@ class _GraphState extends State<Graph> {
       body: Column(
         children: [
           Container(
-            height: 550,
+            height: 540,
             width: double.infinity,
-            color: Colors.red,
+            color: Colors.black,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: SingleChildScrollView(
@@ -128,11 +129,128 @@ class _GraphState extends State<Graph> {
             ),
           ),
           Container(
-            height: 235, // Set the height for the additional container
+            height: 248, // Set the height for the additional container
             width: double.infinity,
-            color: Colors.green, // Replace this with your desired color
+            color: Colors.black, // Replace this with your desired color
             child: Column(
               children: <Widget>[
+                Container(
+                  height: 40,
+                  width: double.infinity,
+                  color: Colors.black,
+                  child: Text('View the location of the animal that was recently spotted in your field',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Colors.white,fontSize: 15,),),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to another screen here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => webview(), // Replace YourDestinationScreen with the desired destination screen widget
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 280,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 90,
+                          decoration:
+                          BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('icons/tiger2.png'),
+                                fit: BoxFit.contain,
+                              ),
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 190,
+                          decoration: BoxDecoration(
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20))
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text('Tiger',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Colors.white,fontSize: 20,),),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 10,),
+
+
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to another screen here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => webview(), // Replace YourDestinationScreen with the desired destination screen widget
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 280,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 90,
+                          decoration:
+                          BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('icons/elephant.png'),
+                                fit: BoxFit.contain,
+                            ),
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 190,
+                          decoration: BoxDecoration(
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20))
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text('Elephant',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Colors.white,fontSize: 20,),),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
                 SizedBox(height: 10,),
                 GestureDetector(
                   onTap: () {
@@ -145,28 +263,108 @@ class _GraphState extends State<Graph> {
                     );
                   },
                   child: Container(
-                    height: 50,
+                    height: 40,
                     width: 280,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.black,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    child: Row(
                       children: [
-                        Text(
-                          "Elephant",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.comfortaa(
-                            color: Color(0xFFffffff),
-                            fontSize: 15,
+                        Container(
+                          height: 50,
+                          width: 90,
+                          decoration:
+                          BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('icons/boar.png'),
+                                fit: BoxFit.contain,
+                              ),
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 190,
+                          decoration: BoxDecoration(
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20))
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text('Wild Boar',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Colors.white,fontSize: 20,),),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
+
+                SizedBox(height: 10,),
+
+
+
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to another screen here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => webview(), // Replace YourDestinationScreen with the desired destination screen widget
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 280,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 90,
+                          decoration:
+                          BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('icons/lion.png'),
+                                fit: BoxFit.contain,
+                              ),
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 190,
+                          decoration: BoxDecoration(
+                              color: Color(0xff3c3f41),
+                              borderRadius: BorderRadius.only(topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20))
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text('Lion',textAlign: TextAlign.center,style: GoogleFonts.comfortaa(color: Colors.white,fontSize: 20,),),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 10,),
 
               ],
             ),

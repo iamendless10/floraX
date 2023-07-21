@@ -92,7 +92,7 @@ class splash extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => homescreen()),
+                          MaterialPageRoute(builder: (context) => LoginDemo()),
                         );
                       },
                     ),
