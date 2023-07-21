@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:pp_template/backendapi.dart';
+import 'package:pp_template/inappwebview.dart';
 
 import 'location.dart';
 
@@ -130,7 +132,7 @@ class _GraphState extends State<Graph> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyApp(), // Replace YourDestinationScreen with the desired destination screen widget
+                        builder: (context) => webview(), // Replace YourDestinationScreen with the desired destination screen widget
                       ),
                     );
                   },
