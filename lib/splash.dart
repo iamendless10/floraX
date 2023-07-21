@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pp_template/homescreen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pp_template/logintest.dart';
+import 'package:pp_template/main.dart';
 
 class splash extends StatelessWidget {
   const splash({Key? key}) : super(key: key);
@@ -91,7 +92,7 @@ class splash extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginDemo()),
+                          MaterialPageRoute(builder: (context) => homescreen()),
                         );
                       },
                     ),
