@@ -16,6 +16,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+import 'graph.dart';
+
 class homescreen extends StatefulWidget {
   const homescreen({Key? key}) : super(key: key);
   @override
@@ -169,7 +171,7 @@ class _homescreenState extends State<homescreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SearchBarScreen()),
+                    MaterialPageRoute(builder: (context) => Graph()),
                   );
                 },
               ),
